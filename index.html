@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>درع كاشف | Kashef Shield Enterprise</title>
+  <style>
+    :root {
+      --bg: #030712;
+      --card: #080f24;
+      --card-hover: #0c1738;
+      --text: #00f2fe;
+      --text-muted: #64748b;
+      --border: #00f2fe;
+      --accent: #38bdf8;
+      --shadow: 0 0 20px rgba(0, 242, 254, 0.25);
+      --success: #22c55e;
+      --warning: #eab308;
+      --danger: #ef4444;
+    }
+
+    body.light {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --card-hover: #f1f5f9;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #cbd5e1;
+      --accent: #0284c7;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      --success: #16a34a;
+      --warning: #ca8a04;
+      --danger: #dc2626;
+    }
+
+    body.dark {
+      --bg: #0b0f19;
+      --card: #111827;
+      --card-hover: #1f2937;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --accent: #38bdf8;
+      --shadow: none;
+      --success: #22c55e;
+      --warning: #eab308;
+      --danger: #ef4444;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1000px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .header-info h1 {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .header-info p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 8px;
+    }
+
+    select, button, input, textarea {
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 8px;
+      outline: none;
+      font-size: 14px;
+      transition: border-color 0.2s;
+    }
+
+    select:focus, input:focus, textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .metric-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 16px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .metric-card h3 {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .metric-card p {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    .tab-btn {
+      cursor: pointer;
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text);
+      padding: 10px 18px;
+      font-weight: 700;
+      border-radius: 8px;
+      opacity: 0.6;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn.active {
+      background: var(--card);
+      border-color: var(--border);
+      opacity: 1;
+      box-shadow: var(--shadow);
+    }
+
+    .tab-content {
+      display: none;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      background: var(--accent);
+      color: #030712;
+      border: none;
+      border-radius: 8px;
+      margin-top: 10px;
+      transition: transform 0.1s ease, filter 0.2s ease;
+    }
+
+    .btn-submit:hover {
+      filter: brightness(1.1);
+    }
+
+    .btn-submit:active {
+      transform: scale(0.99);
+    }
+
+    .result-box {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 8px;
+      display: none;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .status-pass {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid var(--success);
+      color: var(--success);
+    }
+
+    .status-warn {
+      background: rgba(234, 179, 8, 0.1);
+      border: 1px solid var(--warning);
+      color: var(--warning);
+    }
+
+    .status-fail {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid var(--danger);
+      color: var(--danger);
+    }
+
+    .log-table-wrapper {
+      margin-top: 20px;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: inherit;
+      font-size: 13px;
+    }
+
+    th, td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    th {
+      background: var(--card-hover);
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="header-info">
+        <h1 id="app-title">🛡️ درع كاشف | Kashef Shield</h1>
+        <p id="app-sub">المنظومة المصرفية المتقدمة لمكافحة الاحتيال المالي والهندسة الاجتماعية</p>
+      </div>
+      <div class="controls">
+        <select id="lang-select">
+          <option value="ar">العربية (Arabic)</option>
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="es">Español</option>
+          <option value="zh">中文 (Chinese)</option>
+          <option value="ru">Русский</option>
+          <option value="ja">日本語</option>
+          <option value="tr">Türkçe</option>
+          <option value="pt">Português</option>
+          <option value="it">Italiano</option>
+          <option value="hi">हिन्दी</option>
+          <option value="ko">한국어</option>
+          <option value="id">Bahasa Indonesia</option>
+          <option value="vi">Tiếng Việt</option>
+          <option value="nl">Nederlands</option>
+          <option value="fa">فارسی</option>
+          <option value="pl">Polski</option>
+          <option value="uk">Українська</option>
+          <option value="sv">Svenska</option>
+        </select>
+        <select id="theme-select">
+          <option value="neon">Neon ⚡</option>
+          <option value="dark">Dark 🌙</option>
+          <option value="light">Light ☀️</option>
+        </select>
+      </div>
+    </header>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <h3 id="lbl-total">إجمالي العمليات</h3>
+        <p id="cnt-total">0</p>
+      </div>
+      <div class="metric-card">
+        <h3 id="lbl-pass">المقبولة ✅</h3>
+        <p id="cnt-pass">0</p>
+      </div>
+      <div class="metric-card">
+        <h3 id="lbl-otp">طلب تحقق (OTP) ⚠️</h3>
+        <p id="cnt-otp">0</p>
+      </div>
+      <div class="metric-card">
+        <h3 id="lbl-block">المحظورة 🚫</h3>
+        <p id="cnt-block">0</p>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('tab-tx')" id="t-tx">💳 فحص المعاملات وبصمة العتاد</button>
+      <button class="tab-btn" onclick="switchTab('tab-call')" id="t-call">📞 درع المكالمات (Anti-Vishing)</button>
+    </div>
+
+    <!-- كارت فحص المعاملات -->
+    <div id="tab-tx" class="tab-content active">
+      <div class="grid-2">
+        <div class="form-group">
+          <label id="lbl-uid">معرف العميل (User ID):</label>
+          <input type="number" id="tx-user" value="1088">
+        </div>
+        <div class="form-group">
+          <label id="lbl-amt">المبلغ المستقطع ($):</label>
+          <input type="number" id="tx-amt" value="450">
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="form-group">
+          <label id="lbl-card">رقم/رمز البطاقة (Token):</label>
+          <input type="text" id="tx-card" value="4152-8899-7721-9988">
+        </div>
+        <div class="form-group">
+          <label id="lbl-country">دولة المعاملة الجغرافية:</label>
+          <select id="tx-country">
+            <option value="EG">مصر (EG)</option>
+            <option value="SA">المملكة العربية السعودية (SA)</option>
+            <option value="AE">الإمارات (AE)</option>
+            <option value="US">الولايات المتحدة (US)</option>
+            <option value="UK">المملكة المتحدة (UK)</option>
+            <option value="DE">ألمانيا (DE)</option>
+            <option value="FR">فرنسا (FR)</option>
+            <option value="UNKNOWN">نطاق محظور / مجهول (UNKNOWN)</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-submit" onclick="evaluateTx()" id="btn-eval">⚡ فحص فوري متعدد الطبقات</button>
+      <div id="tx-result" class="result-box"></div>
+
+      <div class="log-table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th id="th-time">الوقت</th>
+              <th id="th-user">العميل</th>
+              <th id="th-card">البطاقة</th>
+              <th id="th-risk">المخاطرة</th>
+              <th id="th-dec">القرار</th>
+              <th id="th-sig">التوقيع الرقمي</th>
+            </tr>
+          </thead>
+          <tbody id="tx-log-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- كارت درع المكالمات -->
+    <div id="tab-call" class="tab-content">
+      <div class="form-group">
+        <label id="lbl-phone">رقم المتصل الخارجي:</label>
+        <input type="text" id="call-phone" value="+201099887766">
+      </div>
+      <div class="form-group">
+        <label id="lbl-script">نص المحادثة الصوتية المفرغ:</label>
+        <textarea id="call-txt" rows="4">أهلاً بحضرتك يا فندم أنا من خدمة عملاء البنك المركزي، حسابك موقوف ونحتاج تحديث البيانات، أمليني رقم البطاقة ورمز الـ OTP فوراً لتفادي غلق الحساب نهائياً.</textarea>
+      </div>
+      <button class="btn-submit" onclick="evaluateCall()" id="btn-call">🔍 فحص وتحليل المكالمة لحظياً</button>
+      <div id="call-result" class="result-box"></div>
+    </div>
+  </div>
+
+  <script>
+    // قاموس اللغات الـ 20 مع اتجاه النصوص
+    const I18N = {
+      ar: { dir: "rtl", title: "🛡️ درع كاشف | Kashef Shield", sub: "المنظومة المصرفية المتقدمة لمكافحة الاحتيال المالي", t_tx: "💳 فحص المعاملات", t_call: "📞 درع المكالمات", btn_eval: "⚡ فحص فوري متعدد الطبقات", btn_call: "🔍 فحص وتحليل المكالمة لحظياً", total: "إجمالي العمليات", pass: "المقبولة ✅", otp: "طلب تحقق (OTP) ⚠️", block: "المحظورة 🚫" },
+      en: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise", sub: "Advanced Banking Fraud & Social Engineering Core", t_tx: "💳 Transaction Audit", t_call: "📞 Anti-Vishing Shield", btn_eval: "⚡ Execute Multi-Layer Risk Scan", btn_call: "🔍 Analyze Call Stream", total: "Total Scans", pass: "Approved ✅", otp: "OTP Challenge ⚠️", block: "Blocked 🚫" },
+      fr: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise", sub: "Noyau de Sécurité Financière et Anti-Vishing", t_tx: "💳 Audit de Transaction", t_call: "📞 Bouclier Téléphonique", btn_eval: "⚡ Évaluer les Risques", btn_call: "🔍 Analyser l'Appel", total: "Total Analyses", pass: "Approuvé ✅", otp: "Défi OTP ⚠️", block: "Bloqué 🚫" },
+      de: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise", sub: "Kern für Finanzbetrugserkennung & Anti-Vishing", t_tx: "💳 Transaktionsprüfung", t_call: "📞 Anruf-Schutzschild", btn_eval: "⚡ Risikoscan Ausführen", btn_call: "🔍 Anruf Analysieren", total: "Gesamtprüfungen", pass: "Genehmigt ✅", otp: "OTP Anforderung ⚠️", block: "Gesperrt 🚫" },
+      es: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise", sub: "Núcleo de Seguridad Financiera y Antifraude", t_tx: "💳 Auditoría", t_call: "📞 Escudo de Llamadas", btn_eval: "⚡ Evaluar Transacción", btn_call: "🔍 Analizar Llamada", total: "Total Evaluaciones", pass: "Aprobado ✅", otp: "Desafío OTP ⚠️", block: "Bloqueado 🚫" },
+      zh: { dir: "ltr", title: "🛡️ Kashef Shield 核心", sub: "先进银行反欺诈与语音防钓鱼系统", t_tx: "💳 交易审计", t_call: "📞 语音防护盾", btn_eval: "⚡ 执行风险扫描", btn_call: "🔍 分析通话", total: "总扫描次数", pass: "已批准 ✅", otp: "需要验证码 ⚠️", block: "已拦截 🚫" },
+      ru: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise", sub: "Система Защиты от Финансового Мошенничества", t_tx: "💳 Аудит транзакций", t_call: "📞 Защита от Вишинга", btn_eval: "⚡ Проверить риски", btn_call: "🔍 Анализировать звонок", total: "Всего проверок", pass: "Одобрено ✅", otp: "Запрос OTP ⚠️", block: "Заблокировано 🚫" },
+      ja: { dir: "ltr", title: "🛡️ Kashef Shield 金融防衛", sub: "先進金融不正検知・ビッシング防御コア", t_tx: "💳 取引監査", t_call: "📞 通話シールド", btn_eval: "⚡ リスクスキャンを実行", btn_call: "🔍 通話を解析", total: "総監査数", pass: "承認済み ✅", otp: "ワンタイムパス要求 ⚠️", block: "ブロック 🚫" },
+      tr: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise", sub: "Gelişmiş Bankacılık Dolandırıcılık Önleme Sistemi", t_tx: "💳 İşlem Denetimi", t_call: "📞 Çağrı Kalkanı", btn_eval: "⚡ Risk Taraması Başlat", btn_call: "🔍 Çağrıyı İncele", total: "Toplam Tarama", pass: "Onaylandı ✅", otp: "OTP Doğrulaması ⚠️", block: "Engellendi 🚫" },
+      pt: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise", sub: "Núcleo de Segurança Financeira e Antifraude", t_tx: "💳 Auditoria de Transação", t_call: "📞 Escudo de Voz", btn_eval: "⚡ Executar Verificação", btn_call: "🔍 Analisar Chamada", total: "Total Verificações", pass: "Aprovado ✅", otp: "Desafio OTP ⚠️", block: "Bloqueado 🚫" },
+      it: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise", sub: "Nucleo di Sicurezza Finanziaria e Anti-Vishing", t_tx: "💳 Controllo Transazione", t_call: "📞 Scudo Chiamate", btn_eval: "⚡ Esegui Scansione", btn_call: "🔍 Esamina Chiamata", total: "Totale Controlli", pass: "Approvato ✅", otp: "Richiesta OTP ⚠️", block: "Bloccato 🚫" },
+      hi: { dir: "ltr", title: "🛡️ काशिफ शील्ड (Kashef Shield)", sub: "वित्तीय धोखाधड़ी और विशिंग सुरक्षा प्रणाली", t_tx: "💳 लेनदेन लेखापरीक्षा", t_call: "📞 कॉल शील्ड", btn_eval: "⚡ जोखिम स्कैन चलाएं", btn_call: "🔍 कॉल का विश्लेषण करें", total: "कुल स्कैन", pass: "स्वीकृत ✅", otp: "ओटीपी चुनौती ⚠️", block: "अवरुद्ध 🚫" },
+      ko: { dir: "ltr", title: "🛡️ Kashef Shield 보안 코어", sub: "금융 사기 탐지 및 보이스피싱 방어 시스템", t_tx: "💳 거래 감사", t_call: "📞 보이스피싱 쉴드", btn_eval: "⚡ 위험 분석 실행", btn_call: "🔍 통화 분석", total: "총 검사 수", pass: "승인됨 ✅", otp: "OTP 인증 요구 ⚠️", block: "차단됨 🚫" },
+      id: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise", sub: "Sistem Keamanan Finansial & Anti-Vishing", t_tx: "💳 Audit Transaksi", t_call: "📞 Pelindung Panggilan", btn_eval: "⚡ Pindai Risiko", btn_call: "🔍 Analisis Panggilan", total: "Total Pemindaian", pass: "Disetujui ✅", otp: "Tantangan OTP ⚠️", block: "Diblokir 🚫" },
+      vi: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise", sub: "Hệ Thống Bảo Mật Tài Chính Chống Lừa Đảo", t_tx: "💳 Kiểm Toán Giao Dịch", t_call: "📞 Khiên Chống Lừa Đảo", btn_eval: "⚡ Quét Rủi Ro", btn_call: "🔍 Phân Tích Cuộc Gọi", total: "Tổng Số Quét", pass: "Được Duyệt ✅", otp: "Yêu Cầu OTP ⚠️", block: "Bị Chặn 🚫" },
+      nl: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise", sub: "Financiële Fraude & Anti-Vishing Bescherming", t_tx: "💳 Transactie Audit", t_call: "📞 Oproep Schild", btn_eval: "⚡ Start Risicoscan", btn_call: "🔍 Analyseer Gesprek", total: "Totaal Scans", pass: "Goedgekeurd ✅", otp: "OTP Uitdaging ⚠️", block: "Geblokkeerd 🚫" },
+      fa: { dir: "rtl", title: "🛡️ سپر کاشف (Kashef Shield)", sub: "سامانه پیشرفته امنیت بانکی و مقابله با کلاهبرداری", t_tx: "💳 حسابرسی تراکنش", t_call: "📞 سپر تماس صوتی", btn_eval: "⚡ ارزیابی فوری ریسک", btn_call: "🔍 بررسی و تحلیل تماس", total: "کل بررسی‌ها", pass: "تأیید شد ✅", otp: "درخواست رمز یکبار مصرف ⚠️", block: "مسدود شد 🚫" },
+      pl: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise", sub: "Zaawansowany Rdzeń Ochrony Finansowej", t_tx: "💳 Audyt Transakcji", t_call: "📞 Tarcza Połączeń", btn_eval: "⚡ Uruchom Skanowanie", btn_call: "🔍 Analizuj Połączenie", total: "Wszystkie Skany", pass: "Zatwierdzone ✅", otp: "Wymóg OTP ⚠️", block: "Zablokowane 🚫" },
+      uk: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise", sub: "Система Захисту від Фінансового Шахрайства", t_tx: "💳 Аудит Транзакцій", t_call: "📞 Захист від Дзвінків", btn_eval: "⚡ Запустити Сканування", btn_call: "🔍 Аналізувати Дзвінок", total: "Всього Сканувань", pass: "Схвалено ✅", otp: "Запит OTP ⚠️", block: "Заблоковано 🚫" },
+      sv: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise", sub: "System för Finansiell Säkerhet & Samtalsskydd", t_tx: "💳 Transaktionsgranskning", t_call: "📞 Samtalsskydd", btn_eval: "⚡ Kör Riskanalys", btn_call: "🔍 Analysera Samtal", total: "Totalt Granskade", pass: "Godkänd ✅", otp: "Kräver OTP ⚠️", block: "Blockerad 🚫" }
+    };
+
+    let stats = { total: 0, pass: 0, otp: 0, block: 0 };
+
+    // التبديل بين التبويبات
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    // تبديل المظهر
+    document.getElementById('theme-select').addEventListener('change', (e) => {
+      document.body.className = e.target.value;
+    });
+
+    // تبديل اللغة وتحديث النصوص والاتجاه
+    document.getElementById('lang-select').addEventListener('change', (e) => {
+      const code = e.target.value;
+      const t = I18N[code] || I18N.en;
+      document.documentElement.dir = t.dir;
+      document.documentElement.lang = code;
+
+      document.getElementById('app-title').innerText = t.title;
+      document.getElementById('app-sub').innerText = t.sub;
+      document.getElementById('t-tx').innerText = t.t_tx;
+      document.getElementById('t-call').innerText = t.t_call;
+      document.getElementById('btn-eval').innerText = t.btn_eval;
+      document.getElementById('btn-call').innerText = t.btn_call;
+      document.getElementById('lbl-total').innerText = t.total;
+      document.getElementById('lbl-pass').innerText = t.pass;
+      document.getElementById('lbl-otp').innerText = t.otp;
+      document.getElementById('lbl-block').innerText = t.block;
+    });
+
+    // توليد توقيع تشفيري للعملية
+    async function generateHMACSignature(msg) {
+      const enc = new TextEncoder();
+      const key = await crypto.subtle.importKey(
+        "raw",
+        enc.encode("kashef_shield_secure_key_2026"),
+        { name: "HMAC", hash: "SHA-256" },
+        false,
+        ["sign"]
+      );
+      const signature = await crypto.subtle.sign("HMAC", key, enc.encode(msg));
+      return Array.from(new Uint8Array(signature)).map(b => b.toString(16).padStart(2, '0')).join('').substring(0, 16);
+    }
+
+    // حجب أرقام البطاقة PCI-DSS
+    function maskCard(card) {
+      const clean = card.replace(/\D/g, '');
+      if (clean.length < 4) return "****";
+      return "****-****-****-" + clean.slice(-4);
+    }
+
+    // فحص المعاملات
+    async function evaluateTx() {
+      const uid = document.getElementById('tx-user').value;
+      const amt = parseFloat(document.getElementById('tx-amt').value) || 0;
+      const card = document.getElementById('tx-card').value;
+      const country = document.getElementById('tx-country').value;
+      const resBox = document.getElementById('tx-result');
+
+      stats.total++;
+      let decision = "APPROVE";
+      let riskScore = 5.0;
+      let reason = "سلوك طبيعي يطابق الملف المالي للعميل";
+
+      if (country === "UNKNOWN") {
+        decision = "BLOCKED";
+        riskScore = 99.9;
+        reason = "معاملة قادمة من نطاق محظور ومدرج في القائمة السوداء الدولية";
+      } else if (amt > 2500) {
+        decision = "BLOCKED";
+        riskScore = 96.5;
+        reason = "انحراف قياسي ضخم في المبلغ المسحوب (High Value Anomaly)";
+      } else if (amt > 600) {
+        decision = "CHALLENGE_OTP";
+        riskScore = 48.0;
+        reason = "مبلغ يستدعي مصادقة ثنائية لتقليل المخاطر الاحترازية";
+      }
+
+      resBox.style.display = 'block';
+      if (decision === "BLOCKED") {
+        stats.block++;
+        resBox.className = 'result-box status-fail';
+        resBox.innerHTML = `🚫 <b>تم حظر المعاملة فوراً!</b><br>مستوى الخطر: ${riskScore}%<br>السبب: ${reason}`;
+      } else if (decision === "CHALLENGE_OTP") {
+        stats.otp++;
+        resBox.className = 'result-box status-warn';
+        resBox.innerHTML = `⚠️ <b>مطلوب رمز تحقق (OTP)!</b><br>مستوى الخطر: ${riskScore}%<br>السبب: ${reason}`;
+      } else {
+        stats.pass++;
+        resBox.className = 'result-box status-pass';
+        resBox.innerHTML = `✅ <b>تمت الموافقة وتمرير المعاملة بأمان!</b><br>مستوى الخطر: ${riskScore}%<br>السبب: ${reason}`;
+      }
+
+      // إضافة السجل والتوقيع الرقمي
+      const sig = await generateHMACSignature(`${uid}_${amt}_${decision}`);
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${new Date().toLocaleTimeString()}</td>
+        <td>#${uid}</td>
+        <td>${maskCard(card)}</td>
+        <td>${riskScore}%</td>
+        <td><b>${decision}</b></td>
+        <td><code>${sig}</code></td>
+      `;
+      document.getElementById('tx-log-body').prepend(row);
+
+      updateMetrics();
+    }
+
+    // فحص المكالمات
+    function evaluateCall() {
+      const phone = document.getElementById('call-phone').value;
+      const text = document.getElementById('call-txt').value.toLowerCase();
+      const resBox = document.getElementById('call-result');
+
+      const keywords = ["فيزا", "بطاقة", "otp", "كود", "تحقق", "موقوف", "تحديث", "cvv", "البنك المركزي", "سري", "card", "password"];
+      const matches = keywords.filter(k => text.includes(k));
+      const hasNumbers = /\d{4,16}/.test(text);
+
+      let risk = matches.length * 20 + (hasNumbers ? 30 : 0);
+      risk = Math.min(100, risk);
+
+      resBox.style.display = 'block';
+      if (risk >= 60) {
+        resBox.className = 'result-box status-fail';
+        resBox.innerHTML = `🚨 <b>تم رصد هجوم هندسة اجتماعية حرج (Vishing Attack)!</b><br>الإجراء: إنهاء المكالمة وإدراج الرقم <code>${phone}</code> في القائمة السوداء الدولية.<br>نسبة الخطر: ${risk}% | الكلمات المرصودة: ${matches.join(', ')}`;
+      } else if (risk >= 30) {
+        resBox.className = 'result-box status-warn';
+        resBox.innerHTML = `⚠️ <b>تنبيه اشتباه احتيال صوتي:</b> تجري محاولة طلب بيانات شبه حساسة.<br>نسبة الخطر: ${risk}% | الكلمات المرصودة: ${matches.join(', ')}`;
+      } else {
+        resBox.className = 'result-box status-pass';
+        resBox.innerHTML = `✅ <b>مكالمة آمنة وطبيعية:</b> لم يتم رصد أي محاولات استدراج بيانات.<br>نسبة الخطر: ${risk}%`;
+      }
+    }
+
+    function updateMetrics() {
+      document.getElementById('cnt-total').innerText = stats.total;
+      document.getElementById('cnt-pass').innerText = stats.pass;
+      document.getElementById('cnt-otp').innerText = stats.otp;
+      document.getElementById('cnt-block').innerText = stats.block;
+    }
+  </script>
+</body>
+</html>
