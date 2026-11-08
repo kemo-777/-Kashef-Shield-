@@ -3,1912 +3,891 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>درع كاشف | Kashef Shield Enterprise AI</title>
   
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Chart.js CDN for Enterprise Analytics -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- SEO & Search Engine Optimization -->
+  <title>Kashef Shield Enterprise AI | درع كاشف للأمن السيبراني</title>
+  <meta name="description" content="Kashef Shield Enterprise AI - The next-generation autonomous cybersecurity SOC platform for real-time financial fraud audit and anti-vishing defense.">
+  <meta name="keywords" content="Kashef Shield, درع كاشف, Cybersecurity, Fraud Detection, Anti Vishing, SOC Dashboard, AI Security">
+  <meta name="author" content="kemo-777">
+  <meta name="robots" content="index, follow">
 
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            cyber: {
-              50: '#f0fdff',
-              100: '#ccfbf1',
-              400: '#22d3ee',
-              500: '#06b6d4',
-              900: '#083344',
-              neon: '#00f2fe',
-              danger: '#f43f5e',
-              warning: '#eab308',
-              success: '#10b981',
-              darkbg: '#040711',
-              carddark: '#0a1026',
-              borderdark: '#16234f'
-            }
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Open Graph & Social Cards -->
+  <meta property="og:title" content="Kashef Shield Enterprise AI | درع كاشف">
+  <meta property="og:description" content="منظومة مصرفية سيبرانية متطورة لرصد الاحتيال المالي والهندسة الاجتماعية لحظياً.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kemo-777.github.io/-Kashef-Shield-/">
+
+  <!-- Chart.js Engine -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
-    /* Custom Scrollbar and Glow utilities */
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: rgba(5, 10, 25, 0.6); }
-    ::-webkit-scrollbar-thumb { background: #00f2fe44; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #00f2fe88; }
+    :root {
+      --bg: #030712;
+      --card: #080f24;
+      --card-hover: #0c1738;
+      --text: #00f2fe;
+      --text-muted: #64748b;
+      --border: #00f2fe;
+      --accent: #38bdf8;
+      --shadow: 0 0 20px rgba(0, 242, 254, 0.25);
+      --success: #22c55e;
+      --warning: #eab308;
+      --danger: #ef4444;
+    }
 
-    .glow-neon {
-      box-shadow: 0 0 25px rgba(0, 242, 254, 0.22);
+    body.dark {
+      --bg: #0b0f19;
+      --card: #111827;
+      --card-hover: #1f2937;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --accent: #38bdf8;
+      --shadow: none;
     }
-    .glow-border {
-      border-color: rgba(0, 242, 254, 0.5);
+
+    body.light {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --card-hover: #f1f5f9;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #cbd5e1;
+      --accent: #0284c7;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
-    .glow-danger {
-      box-shadow: 0 0 25px rgba(244, 63, 94, 0.35);
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
-    .scan-line {
-      background: linear-gradient(180deg, rgba(0,242,254,0) 0%, rgba(0,242,254,0.12) 50%, rgba(0,242,254,0) 100%);
-      animation: scanSweep 3.5s linear infinite;
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: background-color 0.2s, color 0.2s;
     }
-    @keyframes scanSweep {
-      0% { transform: translateY(-100%); }
-      100% { transform: translateY(1000%); }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
-    .radar-pulse {
-      animation: pulseRadar 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
     }
-    @keyframes pulseRadar {
-      0% { transform: scale(0.95); opacity: 0.8; }
-      50% { transform: scale(1.08); opacity: 0.3; }
-      100% { transform: scale(0.95); opacity: 0.8; }
+
+    .header-info h1 {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .header-info p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 8px;
+    }
+
+    select, button, input, textarea {
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 8px;
+      outline: none;
+      font-size: 13px;
+      transition: all 0.2s;
+    }
+
+    select:focus, input:focus, textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 8px rgba(0, 242, 254, 0.3);
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .metric-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 16px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .metric-card h3 {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .metric-card p {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .soc-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 850px) {
+      .soc-section { grid-template-columns: 1fr; }
+    }
+
+    .soc-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .soc-box h2 {
+      font-size: 14px;
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    #threat-map-canvas {
+      width: 100%;
+      height: 200px;
+      background: #020617;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 242, 254, 0.2);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    .tab-btn {
+      cursor: pointer;
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text);
+      padding: 10px 16px;
+      font-weight: 700;
+      border-radius: 8px;
+      opacity: 0.6;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background: var(--card);
+      border-color: var(--border);
+      opacity: 1;
+      box-shadow: var(--shadow);
+    }
+
+    .tab-content {
+      display: none;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 12px;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      background: var(--accent);
+      color: #030712;
+      border: none;
+      border-radius: 8px;
+      margin-top: 8px;
+      transition: transform 0.1s, filter 0.2s;
+    }
+
+    .btn-submit:hover { filter: brightness(1.1); }
+    .btn-submit:active { transform: scale(0.99); }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 10px 14px;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-secondary:hover { background: rgba(0, 242, 254, 0.1); }
+
+    .result-box {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 8px;
+      display: none;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .status-pass { background: rgba(34, 197, 94, 0.15); border: 1px solid var(--success); color: var(--success); }
+    .status-warn { background: rgba(234, 179, 8, 0.15); border: 1px solid var(--warning); color: var(--warning); }
+    .status-fail { background: rgba(239, 68, 68, 0.15); border: 1px solid var(--danger); color: var(--danger); }
+
+    .fp-tag {
+      font-family: monospace;
+      font-size: 12px;
+      background: var(--bg);
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      display: inline-block;
+      margin-top: 4px;
+      color: var(--accent);
+      word-break: break-all;
+    }
+
+    .log-table-wrapper {
+      margin-top: 16px;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: inherit;
+      font-size: 13px;
+    }
+
+    th, td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    th {
+      background: var(--card-hover);
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    @media print {
+      body { background: white !important; color: black !important; }
+      header, .controls, .tabs, .soc-section, .btn-submit, .btn-secondary, #tab-call, #tab-sim { display: none !important; }
+      .container { max-width: 100% !important; }
+      .log-table-wrapper { border: 1px solid #000 !important; }
+      th, td { border-bottom: 1px solid #000 !important; color: #000 !important; }
     }
   </style>
 </head>
-<body class="bg-cyber-darkbg text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-200 overflow-x-hidden selection:bg-cyan-500 selection:text-black">
+<body>
 
-  <!-- Top Global Cyber Bar -->
-  <header class="sticky top-0 z-50 backdrop-blur-md bg-cyber-darkbg/90 border-b border-cyber-borderdark px-4 py-3">
-    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-3">
-      
-      <!-- Brand & Status -->
-      <div class="flex items-center gap-3">
-        <div class="relative flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-600/20 border border-cyber-neon/60 glow-neon">
-          <i class="fa-solid fa-shield-halved text-cyber-neon text-xl"></i>
-          <span class="absolute -top-1 -right-1 flex h-3 w-3">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-          </span>
+  <div class="container">
+    <header>
+      <div class="header-info">
+        <h1 id="app-title">🛡️ Kashef Shield Enterprise AI</h1>
+        <p id="app-sub">المنظومة المصرفية السيبرانية الموحدة - SOC Dashboard</p>
+      </div>
+      <div class="controls">
+        <select id="lang-select">
+          <option value="ar">العربية (Arabic)</option>
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="es">Español</option>
+          <option value="zh">中文 (Chinese)</option>
+          <option value="ru">Русский</option>
+          <option value="ja">日本語</option>
+          <option value="tr">Türkçe</option>
+          <option value="pt">Português</option>
+          <option value="it">Italiano</option>
+          <option value="hi">हिन्दी</option>
+          <option value="ko">한국어</option>
+          <option value="id">Bahasa Indonesia</option>
+          <option value="vi">Tiếng Việt</option>
+          <option value="nl">Nederlands</option>
+          <option value="fa">فارسی</option>
+          <option value="pl">Polski</option>
+          <option value="uk">Українська</option>
+          <option value="sv">Svenska</option>
+        </select>
+        <select id="theme-select">
+          <option value="neon">Neon ⚡</option>
+          <option value="dark">Dark 🌙</option>
+          <option value="light">Light ☀️</option>
+        </select>
+      </div>
+    </header>
+
+    <!-- عدادات الحماية اللحظية -->
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <h3 id="lbl-total">إجمالي المعاملات</h3>
+        <p id="cnt-total">0</p>
+      </div>
+      <div class="metric-card">
+        <h3 id="lbl-pass">العمليات السليمة ✅</h3>
+        <p id="cnt-pass">0</p>
+      </div>
+      <div class="metric-card">
+        <h3 id="lbl-otp">تحدي الأمان (OTP) ⚠️</h3>
+        <p id="cnt-otp">0</p>
+      </div>
+      <div class="metric-card">
+        <h3 id="lbl-block">الهجمات المحظورة 🚫</h3>
+        <p id="cnt-block">0</p>
+      </div>
+    </div>
+
+    <!-- غرفة العمليات (Threat Map & Telemetry) -->
+    <div class="soc-section">
+      <div class="soc-box">
+        <h2>🌐 خريطة التهديدات الحية (Live Vector Threat Map)</h2>
+        <canvas id="threat-map-canvas"></canvas>
+      </div>
+      <div class="soc-box">
+        <h2>📊 منحنى تدفق المعاملات (Transaction Velocity / Sec)</h2>
+        <canvas id="trafficChart" height="150"></canvas>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('tab-tx')" id="t-tx">💳 تدقيق المعاملات والعتاد</button>
+      <button class="tab-btn" onclick="switchTab('tab-call')" id="t-call">🎙️ رصد المكالمات الصوتي (Vishing)</button>
+      <button class="tab-btn" onclick="switchTab('tab-sim')" id="t-sim">⚡ محاكي الهجمات (Simulator)</button>
+    </div>
+
+    <!-- تبويب المعاملات والعتاد -->
+    <div id="tab-tx" class="tab-content active">
+      <div class="grid-2">
+        <div class="form-group">
+          <label id="lbl-uid">معرف الحساب (User ID):</label>
+          <input type="number" id="tx-user" value="1092">
         </div>
-        <div>
-          <div class="flex items-center gap-2">
-            <h1 id="ui-title" class="font-black text-lg md:text-xl tracking-tight text-white flex items-center gap-2">
-              <span>درع كاشف</span>
-              <span class="text-xs px-2 py-0.5 rounded-full bg-cyan-950/80 border border-cyan-500/40 text-cyber-neon font-mono">v4.8 ENTERPRISE</span>
-            </h1>
-          </div>
-          <p id="ui-subtitle" class="text-xs text-slate-400 font-medium">المنظومة المصرفية السيبرانية المتقدمة لرصد الاحتيال المالي والمكالمات المشبوهة</p>
+        <div class="form-group">
+          <label id="lbl-amt">المبلغ المستقطع ($):</label>
+          <input type="number" id="tx-amt" value="350">
         </div>
       </div>
-
-      <!-- Live Controls (Language, Theme, Reset) -->
-      <div class="flex items-center flex-wrap gap-2">
-        <!-- 20 Languages Switcher -->
-        <div class="relative flex items-center bg-slate-900/90 border border-cyber-borderdark rounded-lg px-2 py-1 text-xs">
-          <i class="fa-solid fa-globe text-cyan-400 mr-2 ml-2"></i>
-          <select id="lang-select" class="bg-transparent text-slate-200 outline-none cursor-pointer py-1 font-semibold text-xs">
-            <option value="ar" class="bg-slate-900 text-white">العربية (Arabic)</option>
-            <option value="en" class="bg-slate-900 text-white">English (US)</option>
-            <option value="fr" class="bg-slate-900 text-white">Français (French)</option>
-            <option value="de" class="bg-slate-900 text-white">Deutsch (German)</option>
-            <option value="es" class="bg-slate-900 text-white">Español (Spanish)</option>
-            <option value="zh" class="bg-slate-900 text-white">中文 (Mandarin)</option>
-            <option value="ru" class="bg-slate-900 text-white">Русский (Russian)</option>
-            <option value="ja" class="bg-slate-900 text-white">日本語 (Japanese)</option>
-            <option value="tr" class="bg-slate-900 text-white">Türkçe (Turkish)</option>
-            <option value="pt" class="bg-slate-900 text-white">Português (Portuguese)</option>
-            <option value="it" class="bg-slate-900 text-white">Italiano (Italian)</option>
-            <option value="hi" class="bg-slate-900 text-white">हिन्दी (Hindi)</option>
-            <option value="ko" class="bg-slate-900 text-white">한국어 (Korean)</option>
-            <option value="id" class="bg-slate-900 text-white">Bahasa Indonesia</option>
-            <option value="vi" class="bg-slate-900 text-white">Tiếng Việt (Vietnamese)</option>
-            <option value="nl" class="bg-slate-900 text-white">Nederlands (Dutch)</option>
-            <option value="fa" class="bg-slate-900 text-white">فارسی (Persian)</option>
-            <option value="pl" class="bg-slate-900 text-white">Polski (Polish)</option>
-            <option value="uk" class="bg-slate-900 text-white">Українська (Ukrainian)</option>
-            <option value="sv" class="bg-slate-900 text-white">Svenska (Swedish)</option>
+      <div class="grid-2">
+        <div class="form-group">
+          <label id="lbl-card">رمز البطاقة (Tokenized Card):</label>
+          <input type="text" id="tx-card" value="4152-9981-8822-1102">
+        </div>
+        <div class="form-group">
+          <label id="lbl-country">النطاق الجغرافي للشبكة:</label>
+          <select id="tx-country">
+            <option value="EG">مصر (EG)</option>
+            <option value="SA">المملكة العربية السعودية (SA)</option>
+            <option value="AE">الإمارات (AE)</option>
+            <option value="US">الولايات المتحدة (US)</option>
+            <option value="DE">ألمانيا (DE)</option>
+            <option value="SUSPICIOUS">نطاق شبكي غير مصرح (Tor/Proxy/VPN)</option>
           </select>
         </div>
-
-        <!-- 3 Themes Selector -->
-        <div class="flex items-center bg-slate-900/90 border border-cyber-borderdark rounded-lg p-1 text-xs">
-          <button onclick="setTheme('neon')" class="theme-btn px-2.5 py-1 rounded text-cyan-400 font-bold hover:bg-cyan-950 transition" title="Neon Cyberpunk">⚡ Neon</button>
-          <button onclick="setTheme('dark')" class="theme-btn px-2.5 py-1 rounded text-slate-300 font-bold hover:bg-slate-800 transition" title="Enterprise Dark">🌙 Dark</button>
-          <button onclick="setTheme('light')" class="theme-btn px-2.5 py-1 rounded text-slate-300 font-bold hover:bg-slate-800 transition" title="Clean Light">☀️ Light</button>
-        </div>
-
-        <!-- Quick Audio Status Pill -->
-        <div id="live-mic-pill" class="hidden items-center gap-2 px-3 py-1 rounded-full bg-rose-950/80 border border-rose-500 text-rose-400 text-xs font-mono font-semibold animate-pulse">
-          <span class="w-2 h-2 rounded-full bg-rose-500"></span>
-          <span id="ui-mic-status">REC AUDIO STREAM</span>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Main Multi-Tier Interface -->
-  <main class="max-w-7xl w-full mx-auto p-3 md:p-6 flex-1 flex flex-col gap-6">
-
-    <!-- KPI Metric Cards Grid -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-      
-      <div class="relative overflow-hidden bg-cyber-carddark border border-cyber-borderdark rounded-xl p-4 glow-neon transition hover:border-cyan-400">
-        <div class="flex justify-between items-start">
-          <span id="kpi-total-label" class="text-xs uppercase font-bold text-slate-400">إجمالي الفحوصات</span>
-          <i class="fa-solid fa-server text-cyan-400 text-sm"></i>
-        </div>
-        <div class="mt-2 flex items-baseline gap-2">
-          <span id="kpi-total" class="text-2xl md:text-3xl font-black font-mono text-white">0</span>
-          <span class="text-xs text-emerald-400 font-bold">100% SLA</span>
-        </div>
-        <div class="mt-2 text-[11px] text-slate-500 font-mono" id="kpi-sub-total">Latency Avg: 1.2ms</div>
       </div>
 
-      <div class="relative overflow-hidden bg-cyber-carddark border border-cyber-borderdark rounded-xl p-4 transition hover:border-emerald-500">
-        <div class="flex justify-between items-start">
-          <span id="kpi-approved-label" class="text-xs uppercase font-bold text-slate-400">المعاملات الآمنة</span>
-          <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
-        </div>
-        <div class="mt-2 flex items-baseline gap-2">
-          <span id="kpi-approved" class="text-2xl md:text-3xl font-black font-mono text-emerald-400">0</span>
-          <span class="text-xs text-emerald-500" id="kpi-approved-pct">0%</span>
-        </div>
-        <div class="mt-2 text-[11px] text-slate-500 font-mono">Zero Trust Passed</div>
+      <div style="margin-bottom: 12px;">
+        <span style="font-size: 12px; color: var(--text-muted);">بصمة العتاد الحقيقية للزائر (Hardware Hash):</span><br>
+        <span class="fp-tag" id="device-fingerprint">قيد القراءة...</span>
       </div>
 
-      <div class="relative overflow-hidden bg-cyber-carddark border border-cyber-borderdark rounded-xl p-4 transition hover:border-amber-400">
-        <div class="flex justify-between items-start">
-          <span id="kpi-otp-label" class="text-xs uppercase font-bold text-slate-400">تحدي المصادقة (OTP)</span>
-          <i class="fa-solid fa-shield-virus text-amber-400 text-sm"></i>
-        </div>
-        <div class="mt-2 flex items-baseline gap-2">
-          <span id="kpi-otp" class="text-2xl md:text-3xl font-black font-mono text-amber-400">0</span>
-          <span class="text-xs text-amber-500" id="kpi-otp-pct">0%</span>
-        </div>
-        <div class="mt-2 text-[11px] text-slate-500 font-mono">Step-up Auth Triggered</div>
+      <button class="btn-submit" onclick="evaluateTxManual()" id="btn-eval">⚡ فحص المعاملة وتوثيق التوقيع التشفيري</button>
+      <div id="tx-result" class="result-box"></div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 18px;">
+        <h3 style="font-size: 14px;">سجل التدقيق المصرفي (Immutable Audit Trail)</h3>
+        <button class="btn-secondary" onclick="exportAuditReport()" style="font-size: 12px;">📄 تصدير تقرير جنائي (PDF)</button>
       </div>
 
-      <div class="relative overflow-hidden bg-cyber-carddark border border-cyber-borderdark rounded-xl p-4 glow-danger transition hover:border-rose-500">
-        <div class="flex justify-between items-start">
-          <span id="kpi-blocked-label" class="text-xs uppercase font-bold text-slate-400">الاحتيال المحظور</span>
-          <i class="fa-solid fa-ban text-rose-500 text-sm"></i>
-        </div>
-        <div class="mt-2 flex items-baseline gap-2">
-          <span id="kpi-blocked" class="text-2xl md:text-3xl font-black font-mono text-rose-500">0</span>
-          <span class="text-xs text-rose-400" id="kpi-blocked-pct">0%</span>
-        </div>
-        <div class="mt-2 text-[11px] text-slate-500 font-mono">Prevented Losses: <span id="kpi-saved">$0</span></div>
-      </div>
-
-    </div>
-
-    <!-- Live Cyber Canvas Threat Map -->
-    <div class="relative bg-cyber-carddark border border-cyber-borderdark rounded-xl overflow-hidden shadow-2xl">
-      <div class="p-3 md:px-5 md:py-3 border-b border-cyber-borderdark flex flex-wrap justify-between items-center bg-slate-950/70">
-        <div class="flex items-center gap-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping"></span>
-          <h2 id="threat-map-title" class="text-xs md:text-sm font-bold uppercase tracking-wider text-cyan-300">
-            خريطة التهديدات الجغرافية الدولية (Live Cyber Threat Map)
-          </h2>
-        </div>
-        <div class="flex items-center gap-3 text-xs font-mono text-slate-400">
-          <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> Trusted Node</span>
-          <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-rose-500"></span> Cyber Attack/Travel Vector</span>
-        </div>
-      </div>
-      <div class="relative w-full h-48 md:h-64 bg-[#02050f] overflow-hidden">
-        <canvas id="threatCanvas" class="w-full h-full block"></canvas>
-        <div class="absolute bottom-2 left-3 right-3 flex justify-between items-center text-[10px] text-slate-500 font-mono pointer-events-none">
-          <span>NODES: CAI | RUH | DXB | LHR | JFK | FRA | SIN</span>
-          <span id="live-threat-status" class="text-cyan-400 font-bold">ALL GLOBAL NODES MONITORED</span>
-        </div>
+      <div class="log-table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>الوقت</th>
+              <th>العميل</th>
+              <th>البطاقة</th>
+              <th>المخاطرة</th>
+              <th>القرار</th>
+              <th>التوقيع الرقمي (HMAC-SHA256)</th>
+            </tr>
+          </thead>
+          <tbody id="tx-log-body"></tbody>
+        </table>
       </div>
     </div>
 
-    <!-- Tabbed Core Workspaces -->
-    <div class="flex flex-col gap-4">
-      <div class="flex flex-wrap gap-2 border-b border-cyber-borderdark pb-2">
-        <button onclick="switchTab('tab-tx')" id="nav-btn-tx" class="tab-btn px-4 py-2.5 rounded-lg text-xs md:text-sm font-bold bg-cyan-950/90 border border-cyan-400 text-cyan-300 flex items-center gap-2 transition">
-          <i class="fa-solid fa-credit-card"></i>
-          <span id="tab-title-tx">فحص العمليات وبصمة العتاد</span>
-        </button>
-        <button onclick="switchTab('tab-voice')" id="nav-btn-voice" class="tab-btn px-4 py-2.5 rounded-lg text-xs md:text-sm font-bold bg-slate-900/60 border border-transparent text-slate-400 hover:text-white flex items-center gap-2 transition">
-          <i class="fa-solid fa-microphone-lines"></i>
-          <span id="tab-title-voice">درع المكالمات الصوتي (Vishing)</span>
-        </button>
-        <button onclick="switchTab('tab-ddos')" id="nav-btn-ddos" class="tab-btn px-4 py-2.5 rounded-lg text-xs md:text-sm font-bold bg-slate-900/60 border border-transparent text-slate-400 hover:text-white flex items-center gap-2 transition">
-          <i class="fa-solid fa-bolt-lightning"></i>
-          <span id="tab-title-ddos">محاكي هجمات البوتات وDDoS</span>
-        </button>
-        <button onclick="switchTab('tab-consortium')" id="nav-btn-consortium" class="tab-btn px-4 py-2.5 rounded-lg text-xs md:text-sm font-bold bg-slate-900/60 border border-transparent text-slate-400 hover:text-white flex items-center gap-2 transition">
-          <i class="fa-solid fa-network-wired"></i>
-          <span id="tab-title-consortium">التحالف المصرفي الدولي (Blacklist)</span>
-        </button>
+    <!-- تبويب الرصد الصوتي المباشر -->
+    <div id="tab-call" class="tab-content">
+      <div class="form-group">
+        <label id="lbl-phone">رقم المتصل الخارجي:</label>
+        <input type="text" id="call-phone" value="+201023456789">
       </div>
-
-      <!-- WORKSPACE 1: TRANSACTIONS & HARDWARE AUDIT -->
-      <section id="tab-tx" class="tab-pane flex flex-col gap-5">
-        
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
-          
-          <!-- Input Form Column -->
-          <div class="lg:col-span-2 bg-cyber-carddark border border-cyber-borderdark rounded-xl p-5 flex flex-col gap-4">
-            <div class="flex justify-between items-center border-b border-cyber-borderdark pb-3">
-              <h3 id="form-tx-head" class="text-sm font-bold text-white flex items-center gap-2">
-                <i class="fa-solid fa-fingerprint text-cyan-400"></i> بيانات المعاملة والبصمة الرقمية
-              </h3>
-              <button onclick="autofillRealHardware()" class="text-xs px-2.5 py-1 rounded bg-cyan-950 border border-cyan-500/50 text-cyan-300 hover:bg-cyan-900 transition flex items-center gap-1 font-mono">
-                <i class="fa-solid fa-microchip"></i>
-                <span id="btn-fetch-hw">قراءة عتاد الجهاز الفعلي</span>
-              </button>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label id="lbl-uid" class="block text-xs font-semibold text-slate-300 mb-1">معرّف الحساب (User ID)</label>
-                <input id="in-uid" type="number" value="1092" class="w-full bg-slate-900/90 border border-cyber-borderdark rounded-lg px-3 py-2 text-sm text-white font-mono focus:border-cyan-400 outline-none">
-              </div>
-
-              <div>
-                <label id="lbl-amt" class="block text-xs font-semibold text-slate-300 mb-1">المبلغ المطلوب ($ USD)</label>
-                <input id="in-amt" type="number" value="350.00" step="10" class="w-full bg-slate-900/90 border border-cyber-borderdark rounded-lg px-3 py-2 text-sm text-white font-mono focus:border-cyan-400 outline-none">
-              </div>
-
-              <div>
-                <label id="lbl-card" class="block text-xs font-semibold text-slate-300 mb-1">رمز البطاقة (Token / Primary Account Number)</label>
-                <input id="in-card" type="text" value="4532-9012-7744-8890" class="w-full bg-slate-900/90 border border-cyber-borderdark rounded-lg px-3 py-2 text-sm text-white font-mono focus:border-cyan-400 outline-none">
-              </div>
-
-              <div>
-                <label id="lbl-geo" class="block text-xs font-semibold text-slate-300 mb-1">الموقع الجغرافي للعملية (IP Geo Location)</label>
-                <select id="in-geo" class="w-full bg-slate-900/90 border border-cyber-borderdark rounded-lg px-3 py-2 text-sm text-white font-mono focus:border-cyan-400 outline-none">
-                  <option value="EG">مصر (Cairo - EG)</option>
-                  <option value="SA">المملكة العربية السعودية (Riyadh - SA)</option>
-                  <option value="AE">الإمارات العربية المتحدة (Dubai - AE)</option>
-                  <option value="US">الولايات المتحدة (New York - US)</option>
-                  <option value="UK">المملكة المتحدة (London - UK)</option>
-                  <option value="DE">ألمانيا (Frankfurt - DE)</option>
-                  <option value="SG">سنغافورة (Singapore - SG)</option>
-                  <option value="TOR_EXIT">شبكة إخفاء الهوية (TOR Exit Node)</option>
-                </select>
-              </div>
-
-              <div>
-                <label id="lbl-gpu" class="block text-xs font-semibold text-slate-300 mb-1">معالج الرسوميات (GPU WebGL Renderer)</label>
-                <input id="in-gpu" type="text" value="Apple M-Series Neural Engine" class="w-full bg-slate-900/90 border border-cyber-borderdark rounded-lg px-3 py-2 text-xs text-white font-mono focus:border-cyan-400 outline-none">
-              </div>
-
-              <div>
-                <label id="lbl-cores" class="block text-xs font-semibold text-slate-300 mb-1">أنوية المعالج وشاشته (Cores / Screen Spec)</label>
-                <input id="in-cores" type="text" value="8 Cores | 1920x1080@24bit" class="w-full bg-slate-900/90 border border-cyber-borderdark rounded-lg px-3 py-2 text-xs text-white font-mono focus:border-cyan-400 outline-none">
-              </div>
-            </div>
-
-            <!-- Pre-Execution Action Button -->
-            <button onclick="runTransactionAudit()" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-black text-sm tracking-wide shadow-lg shadow-cyan-500/20 active:scale-[0.99] transition flex items-center justify-center gap-2">
-              <i class="fa-solid fa-microchip"></i>
-              <span id="btn-run-tx">تنفيذ الفحص الفوري متعدد الطبقات (AI + Zero Trust)</span>
-            </button>
-
-            <!-- Instant Decision Box -->
-            <div id="tx-decision-card" class="hidden rounded-xl p-4 border transition duration-300 font-sans">
-              <!-- Dynamically populated -->
-            </div>
-          </div>
-
-          <!-- Hardware Fingerprint Live Analysis Card -->
-          <div class="bg-cyber-carddark border border-cyber-borderdark rounded-xl p-5 flex flex-col gap-4">
-            <h3 id="hw-title" class="text-sm font-bold text-white border-b border-cyber-borderdark pb-3 flex items-center justify-between">
-              <span>بصمة العتاد الحقيقية للزائر</span>
-              <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-950 border border-emerald-500 text-emerald-400 font-mono">LIVE SENSOR</span>
-            </h3>
-
-            <div class="space-y-3 font-mono text-xs">
-              <div class="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800">
-                <span class="text-slate-400 block text-[10px] uppercase">Client Hash (SHA-256)</span>
-                <span id="hw-live-hash" class="text-cyan-300 font-bold break-all">Generating...</span>
-              </div>
-              <div class="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800">
-                <span class="text-slate-400 block text-[10px] uppercase">Detected GPU Unmasked</span>
-                <span id="hw-live-gpu" class="text-slate-200 break-words">Analyzing WebGL Context...</span>
-              </div>
-              <div class="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800">
-                <span class="text-slate-400 block text-[10px] uppercase">Screen & Geometry Spec</span>
-                <span id="hw-live-res" class="text-slate-200">Detecting...</span>
-              </div>
-              <div class="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800">
-                <span class="text-slate-400 block text-[10px] uppercase">Concurrency & Platform</span>
-                <span id="hw-live-cores" class="text-slate-200">Detecting...</span>
-              </div>
-            </div>
-
-            <div class="mt-auto p-3 rounded-lg bg-cyan-950/40 border border-cyan-800/40 text-[11px] text-cyan-200">
-              <i class="fa-solid fa-lock text-cyan-400 mr-1 ml-1"></i>
-              <span id="hw-compliance-msg">تطابق تام مع معايير PCI-DSS v4.0 لتوليد معرفات الأجهزة غير القابلة للعبث.</span>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Real-Time Transactions Audit Table -->
-        <div class="bg-cyber-carddark border border-cyber-borderdark rounded-xl overflow-hidden shadow-xl">
-          <div class="p-3 md:px-5 border-b border-cyber-borderdark flex justify-between items-center bg-slate-950/70">
-            <h4 id="tx-log-title" class="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
-              <i class="fa-solid fa-list-check text-cyan-400"></i> سجل الفحص الرقمي المشفر (Audit Ledger)
-            </h4>
-            <span class="text-[11px] text-slate-500 font-mono" id="tx-log-count">0 Records Recorded</span>
-          </div>
-          <div class="overflow-x-auto">
-            <table class="w-full text-start text-xs font-sans">
-              <thead class="bg-slate-900/80 text-slate-400 border-b border-cyber-borderdark font-mono text-[11px]">
-                <tr>
-                  <th class="p-3 text-start">Timestamp</th>
-                  <th class="p-3 text-start">User ID</th>
-                  <th class="p-3 text-start">Masked Card</th>
-                  <th class="p-3 text-start">Amount</th>
-                  <th class="p-3 text-start">Geo Node</th>
-                  <th class="p-3 text-start">Risk Score</th>
-                  <th class="p-3 text-start">Decision</th>
-                  <th class="p-3 text-start">HMAC-SHA256 Sig</th>
-                </tr>
-              </thead>
-              <tbody id="tx-log-rows" class="divide-y divide-cyber-borderdark font-mono text-slate-200">
-                <!-- Dynamically filled with audit logs -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-      </section>
-
-      <!-- WORKSPACE 2: ANTI-VISHING REAL-TIME ACOUSTIC & SPEECH ANALYZER -->
-      <section id="tab-voice" class="tab-pane hidden flex flex-col gap-5">
-        
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
-          
-          <div class="lg:col-span-2 bg-cyber-carddark border border-cyber-borderdark rounded-xl p-5 flex flex-col gap-4">
-            <div class="flex flex-wrap justify-between items-center border-b border-cyber-borderdark pb-3 gap-2">
-              <div>
-                <h3 id="vishing-head" class="text-sm font-bold text-white flex items-center gap-2">
-                  <i class="fa-solid fa-headset text-cyan-400"></i> درع الرصد الصوتي المباشر للمكالمات (Anti-Vishing)
-                </h3>
-                <p id="vishing-sub" class="text-xs text-slate-400">تحليل فوري للموجات الصوتية واكتشاف الهندسة الاجتماعية بالذكاء الاصطناعي</p>
-              </div>
-
-              <!-- Live Microphone Button -->
-              <div class="flex items-center gap-2">
-                <button id="btn-toggle-mic" onclick="toggleMicrophoneStream()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-rose-600 to-amber-600 hover:from-rose-500 hover:to-amber-500 text-white font-bold text-xs flex items-center gap-2 transition shadow-lg shadow-rose-950">
-                  <i id="mic-icon" class="fa-solid fa-microphone"></i>
-                  <span id="btn-mic-text">تشغيل المايكروفون والفحص الحي</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Waveform Canvas -->
-            <div class="relative w-full h-24 bg-slate-950 rounded-xl border border-cyber-borderdark overflow-hidden flex items-center justify-center">
-              <canvas id="voiceWaveCanvas" class="w-full h-full block"></canvas>
-              <div id="mic-hint-overlay" class="absolute text-slate-500 text-xs font-mono pointer-events-none">
-                MIC OFF • CLICK BUTTON TO STREAM & SCAN LIVE SPEECH
-              </div>
-            </div>
-
-            <!-- Phone & Text Area Form -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-              <div class="md:col-span-1">
-                <label id="lbl-caller-phone" class="block text-xs font-semibold text-slate-300 mb-1">رقم المتصل (Caller ID)</label>
-                <input id="in-caller-phone" type="text" value="+20 10 9988 7766" class="w-full bg-slate-900/90 border border-cyber-borderdark rounded-lg px-3 py-2 text-sm text-white font-mono focus:border-cyan-400 outline-none">
-              </div>
-
-              <div class="md:col-span-2">
-                <label id="lbl-quick-scenario" class="block text-xs font-semibold text-slate-300 mb-1">سيناريوهات هجوم مسجلة مسبقاً (Test Vector)</label>
-                <select id="sel-scenario" onchange="applyVoiceScenario()" class="w-full bg-slate-900/90 border border-cyber-borderdark rounded-lg px-3 py-2 text-xs text-white focus:border-cyan-400 outline-none font-sans">
-                  <option value="1">⚠️ احتيال بنكي حرج (طلب OTP ورقم البطاقة بدعوى إيقاف الحساب)</option>
-                  <option value="2">⚠️ انتحال صفة الدعم الفني (طلب كلمة المرور ورمز الأمان لتحديث التطبيق)</option>
-                  <option value="3">✅ مكالمة مصرفية طبيعية (استفسار عن مواعيد العمل وتفاصيل الفروع)</option>
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <label id="lbl-transcript" class="block text-xs font-semibold text-slate-300 mb-1">النص الصوتي المفرغ بالزمن الحقيقي (Speech-To-Text Stream)</label>
-              <textarea id="in-transcript" rows="3" class="w-full bg-slate-900/90 border border-cyber-borderdark rounded-lg p-3 text-xs md:text-sm text-slate-200 focus:border-cyan-400 outline-none font-sans">أهلاً يا فندم أنا من خدمة عملاء البنك المركزي، حسابك موقوف ونحتاج تحديث البيانات، أمليني رقم البطاقة ورمز الـ OTP فوراً لتفادي تجميد أموالك.</textarea>
-            </div>
-
-            <button onclick="scanCurrentTranscript()" class="w-full py-3 rounded-xl bg-cyan-950 hover:bg-cyan-900 border border-cyan-400 text-cyan-300 font-bold text-xs md:text-sm flex items-center justify-center gap-2 transition">
-              <i class="fa-solid fa-brain"></i>
-              <span id="btn-scan-transcript">تحليل النص بالذكاء الاصطناعي لرصد الهندسة الاجتماعية</span>
-            </button>
-
-            <!-- Vishing Result Box -->
-            <div id="vishing-result-box" class="hidden rounded-xl p-4 border transition font-sans"></div>
-          </div>
-
-          <!-- Anti-Vishing Neural Heuristics Breakdown -->
-          <div class="bg-cyber-carddark border border-cyber-borderdark rounded-xl p-5 flex flex-col gap-4">
-            <h3 id="heuristics-head" class="text-sm font-bold text-white border-b border-cyber-borderdark pb-3 flex items-center justify-between">
-              <span>مؤشرات الاشتباه الصوتي الحالية</span>
-              <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-950 border border-cyan-500 text-cyan-400 font-mono">NEURAL NLP</span>
-            </h3>
-
-            <div class="space-y-3 text-xs">
-              <div class="p-3 rounded-lg bg-slate-950/80 border border-slate-800">
-                <div class="flex justify-between font-bold mb-1">
-                  <span id="ind-urgency-lbl">مستوى الضغط والترهيب النفسي</span>
-                  <span id="val-urgency" class="text-rose-400 font-mono">92%</span>
-                </div>
-                <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden">
-                  <div id="bar-urgency" class="bg-rose-500 h-full rounded-full transition-all duration-500" style="width: 92%"></div>
-                </div>
-              </div>
-
-              <div class="p-3 rounded-lg bg-slate-950/80 border border-slate-800">
-                <div class="flex justify-between font-bold mb-1">
-                  <span id="ind-creds-lbl">طلب بيانات التحقق السرية (OTP / CVV)</span>
-                  <span id="val-creds" class="text-rose-400 font-mono">100%</span>
-                </div>
-                <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden">
-                  <div id="bar-creds" class="bg-rose-500 h-full rounded-full transition-all duration-500" style="width: 100%"></div>
-                </div>
-              </div>
-
-              <div class="p-3 rounded-lg bg-slate-950/80 border border-slate-800">
-                <div class="flex justify-between font-bold mb-1">
-                  <span id="ind-auth-lbl">محاكاة صفة البنك المركزي الرسمية</span>
-                  <span id="val-auth" class="text-amber-400 font-mono">78%</span>
-                </div>
-                <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden">
-                  <div id="bar-auth" class="bg-amber-500 h-full rounded-full transition-all duration-500" style="width: 78%"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-auto p-3 rounded-lg bg-slate-900 border border-slate-800 text-[11px] text-slate-300">
-              <span class="text-rose-400 font-bold block mb-1">⚡ Automated Protocol Trigger:</span>
-              <span id="vishing-protocol-desc">عند تجاوز نسبة الخطر 65% يتم حظر المكالمة فوراً وإدراج الرقم في شبكة التحالف المصرفي الدولي.</span>
-            </div>
-          </div>
-
-        </div>
-
-      </section>
-
-      <!-- WORKSPACE 3: AUTOMATED BOT & DDOS ATTACK SIMULATOR -->
-      <section id="tab-ddos" class="tab-pane hidden flex flex-col gap-5">
-        
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
-          
-          <div class="lg:col-span-1 bg-cyber-carddark border border-cyber-borderdark rounded-xl p-5 flex flex-col gap-4">
-            <h3 id="sim-control-head" class="text-sm font-bold text-white border-b border-cyber-borderdark pb-3 flex items-center gap-2">
-              <i class="fa-solid fa-gamepad text-cyan-400"></i> لوحة التحكم بمحاكاة الهجمات
-            </h3>
-
-            <div>
-              <label id="lbl-sim-rate" class="block text-xs font-semibold text-slate-300 mb-1">كثافة الهجوم (معاملة / ثانية)</label>
-              <input id="sim-rate-range" type="range" min="5" max="60" value="25" class="w-full accent-cyan-400 cursor-pointer">
-              <div class="flex justify-between text-xs font-mono text-cyan-300 mt-1">
-                <span>Slow (5 tx/s)</span>
-                <span id="sim-rate-val" class="font-bold">25 tx/s</span>
-                <span>Max DDoS (60 tx/s)</span>
-              </div>
-            </div>
-
-            <div>
-              <label id="lbl-sim-type" class="block text-xs font-semibold text-slate-300 mb-1">نوع متجه الهجوم (Attack Vector)</label>
-              <select id="sim-attack-vector" class="w-full bg-slate-900/90 border border-cyber-borderdark rounded-lg p-2.5 text-xs text-white focus:border-cyan-400 outline-none">
-                <option value="botnet_credential">Botnet Credential Stuffing (High Frequency)</option>
-                <option value="impossible_travel">Rapid Impossible Travel Vectors (跨国跳跃)</option>
-                <option value="micro_probe">Distributed Micro-Transactions Probing</option>
-              </select>
-            </div>
-
-            <div class="flex gap-2 mt-2">
-              <button id="btn-start-sim" onclick="startAttackSimulator()" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-rose-600 to-red-700 hover:from-rose-500 hover:to-red-600 text-white font-bold text-xs md:text-sm flex items-center justify-center gap-2 transition shadow-lg shadow-rose-950">
-                <i class="fa-solid fa-play"></i>
-                <span id="btn-sim-start-text">بدء ضخ الهجوم</span>
-              </button>
-              <button id="btn-stop-sim" onclick="stopAttackSimulator()" class="px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs flex items-center justify-center transition">
-                <i class="fa-solid fa-stop"></i>
-              </button>
-            </div>
-
-            <div class="p-3 rounded-lg bg-slate-950/80 border border-slate-800 text-xs font-mono space-y-1">
-              <div class="flex justify-between text-slate-400">
-                <span>Simulator State:</span>
-                <span id="sim-live-state" class="text-emerald-400 font-bold">IDLE</span>
-              </div>
-              <div class="flex justify-between text-slate-400">
-                <span>Total Injected:</span>
-                <span id="sim-injected-count" class="text-cyan-400 font-bold">0 tx</span>
-              </div>
-              <div class="flex justify-between text-slate-400">
-                <span>Rate-Limit Blocks:</span>
-                <span id="sim-blocked-count" class="text-rose-400 font-bold">0</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Real-Time Charts Breakdown -->
-          <div class="lg:col-span-2 bg-cyber-carddark border border-cyber-borderdark rounded-xl p-5 flex flex-col gap-4">
-            <div class="flex justify-between items-center border-b border-cyber-borderdark pb-3">
-              <h3 id="charts-head" class="text-sm font-bold text-white flex items-center gap-2">
-                <i class="fa-solid fa-chart-line text-cyan-400"></i> منحنى تدفق الهجمات والاستجابة الديناميكية اللحظية
-              </h3>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-950 border border-cyan-500 text-cyan-300">CHART.JS TELEMETRY</span>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="h-56 bg-slate-950/70 p-2 rounded-xl border border-slate-800 relative">
-                <canvas id="velocityChart"></canvas>
-              </div>
-              <div class="h-56 bg-slate-950/70 p-2 rounded-xl border border-slate-800 relative">
-                <canvas id="distributionChart"></canvas>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </section>
-
-      <!-- WORKSPACE 4: GLOBAL CONSORTIUM NETWORK BLACKLIST -->
-      <section id="tab-consortium" class="tab-pane hidden flex flex-col gap-5">
-        
-        <div class="bg-cyber-carddark border border-cyber-borderdark rounded-xl p-5 flex flex-col gap-4">
-          <div class="flex flex-wrap justify-between items-center border-b border-cyber-borderdark pb-3 gap-2">
-            <div>
-              <h3 id="consortium-head" class="text-sm font-bold text-white flex items-center gap-2">
-                <i class="fa-solid fa-globe text-cyan-400"></i> قاعدة بيانات التحالف المصرفي الدولي (Cross-Bank Global Consortium)
-              </h3>
-              <p id="consortium-sub" class="text-xs text-slate-400">تبادل فوري للبطاقات المسروقة، وأرقام Vishing، وبصمات العتاد المحظورة دولياً</p>
-            </div>
-            <button onclick="addNewBlacklistModal()" class="px-3.5 py-2 rounded-lg bg-cyan-950 border border-cyan-500 text-cyan-300 font-bold text-xs hover:bg-cyan-900 transition flex items-center gap-1.5">
-              <i class="fa-solid fa-plus"></i>
-              <span id="btn-add-blacklist">إدراج تهديد جديد للقائمة</span>
-            </button>
-          </div>
-
-          <div class="overflow-x-auto">
-            <table class="w-full text-start text-xs font-sans">
-              <thead class="bg-slate-900/80 text-slate-400 border-b border-cyber-borderdark font-mono text-[11px]">
-                <tr>
-                  <th class="p-3 text-start">Entity Type</th>
-                  <th class="p-3 text-start">Compromised Target</th>
-                  <th class="p-3 text-start">Classification Reason</th>
-                  <th class="p-3 text-start">Reporting Node</th>
-                  <th class="p-3 text-start">Added Date</th>
-                  <th class="p-3 text-start">Global Status</th>
-                  <th class="p-3 text-start">Action</th>
-                </tr>
-              </thead>
-              <tbody id="consortium-table-body" class="divide-y divide-cyber-borderdark font-mono text-slate-200">
-                <!-- Dynamically Rendered Records -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-      </section>
-
+      <div class="form-group">
+        <label id="lbl-script">النص المنطوق / المفرغ:</label>
+        <textarea id="call-txt" rows="3" placeholder="تحدث عبر المايك مباشرة أو الصق نص المكالمة هنا..."></textarea>
+      </div>
+      <div class="grid-2">
+        <button class="btn-secondary" id="mic-btn" onclick="toggleVoiceRecording()">🎙️ بدء الاستماع الصوتي المباشر</button>
+        <button class="btn-submit" onclick="evaluateCall()" id="btn-call">🔍 تحليل مؤشر الهندسة الاجتماعية</button>
+      </div>
+      <div id="call-result" class="result-box"></div>
     </div>
 
-  </main>
-
-  <!-- Interactive Footer -->
-  <footer class="mt-auto border-t border-cyber-borderdark bg-slate-950/80 px-4 py-3 text-xs text-slate-400 font-mono">
-    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
-      <div class="flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-        <span id="footer-system-status">Kashef Shield Zero-Trust Core Active • PCI-DSS v4.0 Grade</span>
-      </div>
-      <div>
-        <span>Audit Signature: HMAC-SHA256 • Verified</span>
+    <!-- تبويب محاكي الهجمات -->
+    <div id="tab-sim" class="tab-content">
+      <p style="font-size: 13px; line-height: 1.6; margin-bottom: 12px;">
+        يقوم محاكي الهجمات بضخ دفعات متتالية من العمليات لاختبار قدرة المحرك الخوارزمي على التمييز العشوائي والتصدي للهجمات المنسقة.
+      </p>
+      <button class="btn-submit" onclick="runAttackSimulation()">🚀 إطلاق محاكاة 25 معاملة مشبوهة</button>
+      <div id="sim-log" style="margin-top: 14px; font-family: monospace; font-size: 12px; max-height: 180px; overflow-y: auto; border: 1px solid var(--border); padding: 10px; border-radius: 8px; background: var(--bg);">
+        سجل المحاكاة جاهز للتشغيل...
       </div>
     </div>
-  </footer>
+  </div>
 
-  <!-- SCRIPT LOGIC ENGINE -->
   <script>
-    /* =========================================================================
-       1. GLOBAL STATE & INTERNATIONALIZATION DICTIONARY (20 LANGUAGES)
-       ========================================================================= */
+    // قاموس الـ 20 لغة الكامل مع اتجاه النصوص
     const I18N = {
-      ar: {
-        dir: "rtl",
-        title: "درع كاشف",
-        subtitle: "المنظومة المصرفية السيبرانية المتقدمة لرصد الاحتيال المالي والمكالمات المشبوهة",
-        total: "إجمالي الفحوصات",
-        safe: "المعاملات الآمنة",
-        otp: "تحدي المصادقة (OTP)",
-        blocked: "الاحتيال المحظور",
-        threatMap: "خريطة التهديدات الجغرافية الدولية (Live Cyber Threat Map)",
-        tabTx: "فحص العمليات وبصمة العتاد",
-        tabVoice: "درع المكالمات الصوتي (Vishing)",
-        tabDDoS: "محاكي هجمات البوتات وDDoS",
-        tabConsortium: "التحالف المصرفي الدولي (Blacklist)",
-        btnTx: "تنفيذ الفحص الفوري متعدد الطبقات (AI + Zero Trust)",
-        btnMicStart: "تشغيل المايكروفون والفحص الحي",
-        btnMicStop: "إيقاف المايكروفون الصوتي",
-        btnScanVoice: "تحليل النص بالذكاء الاصطناعي لرصد الهندسة الاجتماعية",
-        btnFetchHw: "قراءة عتاد الجهاز الفعلي",
-        btnAddBlacklist: "إدراج تهديد جديد للقائمة",
-        auditTitle: "سجل الفحص الرقمي المشفر (Audit Ledger)"
-      },
-      en: {
-        dir: "ltr",
-        title: "Kashef Shield Enterprise",
-        subtitle: "Advanced Cyber Banking Fraud Detection & Real-time Anti-Vishing Core",
-        total: "Total Audits",
-        safe: "Approved Clean",
-        otp: "OTP Challenge",
-        blocked: "Blocked Fraud",
-        threatMap: "Global Interactive Cyber Threat Map",
-        tabTx: "Transaction & Hardware Audit",
-        tabVoice: "Acoustic Anti-Vishing Shield",
-        tabDDoS: "Botnet & DDoS Simulator",
-        tabConsortium: "Global Consortium Blacklist",
-        btnTx: "Execute Multi-Layer Risk Scan (AI + Zero Trust)",
-        btnMicStart: "Start Live Microphone Scan",
-        btnMicStop: "Stop Microphone Stream",
-        btnScanVoice: "Analyze Speech NLP for Social Engineering",
-        btnFetchHw: "Probe Live Hardware Spec",
-        btnAddBlacklist: "Add Threat Entity",
-        auditTitle: "Cryptographic Tamper-Proof Audit Ledger"
-      },
-      fr: {
-        dir: "ltr",
-        title: "Kashef Shield Enterprise",
-        subtitle: "Cœur de Détection des Fraudes Bancaires et Anti-Vishing Vocal en Temps Réel",
-        total: "Audits Totaux",
-        safe: "Approuvé",
-        otp: "Défi OTP",
-        blocked: "Fraudes Bloquées",
-        threatMap: "Carte Mondiale des Menaces Cybernétiques",
-        tabTx: "Audit Transactionnel & Matériel",
-        tabVoice: "Bouclier Vocal Anti-Vishing",
-        tabDDoS: "Simulateur DDoS & Botnets",
-        tabConsortium: "Consortium Bancaire Mondial",
-        btnTx: "Exécuter l'Analyse Multi-Couches (AI + Zero Trust)",
-        btnMicStart: "Activer le Microphone en Direct",
-        btnMicStop: "Arrêter le Microphone",
-        btnScanVoice: "Analyser l'Ingénierie Sociale Vocale",
-        btnFetchHw: "Détecter le Matériel Réel",
-        btnAddBlacklist: "Ajouter à la Liste Noire",
-        auditTitle: "Registre d'Audit Cryptographique Inaltérable"
-      },
-      de: {
-        dir: "ltr",
-        title: "Kashef Shield Enterprise",
-        subtitle: "Hochmodernes Kernsystem für Bankenbetrugserkennung & Anti-Vishing",
-        total: "Gesamtprüfungen",
-        safe: "Genehmigt",
-        otp: "OTP-Anforderung",
-        blocked: "Betrug Blockiert",
-        threatMap: "Globale Interaktive Cyber-Bedrohungskarte",
-        tabTx: "Transaktions- & Hardware-Audit",
-        tabVoice: "Akustisches Anti-Vishing-Schild",
-        tabDDoS: "Botnetz- & DDoS-Simulator",
-        tabConsortium: "Globales Bankenkonsortium",
-        btnTx: "Mehrschichtige Risikoanalyse Ausführen",
-        btnMicStart: "Live-Mikrofon Starten",
-        btnMicStop: "Mikrofon Stoppen",
-        btnScanVoice: "Sprach-NLP auf Social Engineering Prüfen",
-        btnFetchHw: "Echte Hardware Ermitteln",
-        btnAddBlacklist: "Bedrohung Hinzufügen",
-        auditTitle: "Kryptografisches Prüfprotokoll"
-      },
-      es: {
-        dir: "ltr",
-        title: "Kashef Shield Enterprise",
-        subtitle: "Núcleo de Ciberseguridad Bancaria y Prevención de Vishing en Tiempo Real",
-        total: "Auditorías Totales",
-        safe: "Aprobadas",
-        otp: "Desafío OTP",
-        blocked: "Fraude Bloqueado",
-        threatMap: "Mapa Global de Amenazas Cibernéticas",
-        tabTx: "Auditoría de Transacciones y Hardware",
-        tabVoice: "Escudo Anti-Vishing de Voz",
-        tabDDoS: "Simulador de Bots y DDoS",
-        tabConsortium: "Consorcio Bancario Global",
-        btnTx: "Ejecutar Escaneo Multicapa (IA + Zero Trust)",
-        btnMicStart: "Activar Micrófono en Vivo",
-        btnMicStop: "Detener Micrófono",
-        btnScanVoice: "Analizar Ingeniería Social en Voz",
-        btnFetchHw: "Sondear Hardware Real",
-        btnAddBlacklist: "Añadir a Lista Negra",
-        auditTitle: "Libro de Registro Criptográfico Seguro"
-      },
-      zh: {
-        dir: "ltr",
-        title: "Kashef Shield 银行防欺诈核心",
-        subtitle: "先进的实时金融欺诈检测与语音防钓鱼平台",
-        total: "总审计次数",
-        safe: "安全批准",
-        otp: "动态验证码挑战",
-        blocked: "已拦截欺诈",
-        threatMap: "全球实时网络威胁动态地图",
-        tabTx: "交易审计与硬件指纹",
-        tabVoice: "实时语音防钓鱼防护盾",
-        tabDDoS: "僵尸网络与DDoS压力模拟",
-        tabConsortium: "全球银行联盟黑名单",
-        btnTx: "执行多层风险分析 (AI + 零信任)",
-        btnMicStart: "启动麦克风实时监听",
-        btnMicStop: "停止麦克风",
-        btnScanVoice: "分析语音社工欺诈攻击",
-        btnFetchHw: "读取本机真实硬件信息",
-        btnAddBlacklist: "添加威胁实体",
-        auditTitle: "加密防篡改审计账本"
-      },
-      ru: {
-        dir: "ltr",
-        title: "Kashef Shield Enterprise",
-        subtitle: "Банковская система выявления мошенничества и защиты от вишинга",
-        total: "Всего проверок",
-        safe: "Одобрено",
-        otp: "Запрос OTP",
-        blocked: "Заблокировано",
-        threatMap: "Карта глобальных киберугроз",
-        tabTx: "Аудит транзакций и оборудования",
-        tabVoice: "Акустический щит от вишинга",
-        tabDDoS: "Симулятор ботнетов и DDoS",
-        tabConsortium: "Глобальный банковский консорциум",
-        btnTx: "Выполнить многоуровневый анализ (ИИ)",
-        btnMicStart: "Включить микрофон",
-        btnMicStop: "Остановить микрофон",
-        btnScanVoice: "Анализировать речь на соц. инженерию",
-        btnFetchHw: "Определить реальное железо",
-        btnAddBlacklist: "Внести в черный список",
-        auditTitle: "Криптографический журнал аудита"
-      },
-      ja: {
-        dir: "ltr",
-        title: "Kashef Shield エンタープライズ",
-        subtitle: "高度な銀行詐欺検知およびリアルタイム通話防御コア",
-        total: "総監査数",
-        safe: "正常承認",
-        otp: "ワンタイムパス要求",
-        blocked: "不正遮断",
-        threatMap: "世界サイバー脅威リアルタイムマップ",
-        tabTx: "取引＆ハードウェア監査",
-        tabVoice: "対ビッシング音声シールド",
-        tabDDoS: "ボット＆DDoSシミュレーター",
-        tabConsortium: "世界銀行コンソーシアム",
-        btnTx: "多層AIスキャンを実行",
-        btnMicStart: "マイク集音開始",
-        btnMicStop: "マイク停止",
-        btnScanVoice: "音声ソーシャルエンジニアリング解析",
-        btnFetchHw: "実ハードウェア情報取得",
-        btnAddBlacklist: "ブラックリストに追加",
-        auditTitle: "暗号化改ざん防止監査ログ"
-      },
-      tr: {
-        dir: "ltr",
-        title: "Kashef Shield Enterprise",
-        subtitle: "İleri Bankacılık Dolandırıcılık Tespiti ve Sesli Oltalama Kalkanı",
-        total: "Toplam Denetim",
-        safe: "Onaylandı",
-        otp: "OTP Doğrulaması",
-        blocked: "Engellenen Dolandırıcılık",
-        threatMap: "Küresel Siber Tehdit Haritası",
-        tabTx: "İşlem ve Donanım Denetimi",
-        tabVoice: "Sesli Vishing Kalkanı",
-        tabDDoS: "Botnet ve DDoS Simülatörü",
-        tabConsortium: "Küresel Bankacılık Konsorsiyumu",
-        btnTx: "Çok Katmanlı Risk Taramasını Başlat",
-        btnMicStart: "Canlı Mikrofonu Başlat",
-        btnMicStop: "Mikrofonu Durdur",
-        btnScanVoice: "Sosyal Mühendislik Analizi Yap",
-        btnFetchHw: "Gerçek Donanımı Tara",
-        btnAddBlacklist: "Tehdit Ekle",
-        auditTitle: "Kriptografik Denetim Kayıt Defteri"
-      },
-      pt: {
-        dir: "ltr",
-        title: "Kashef Shield Enterprise",
-        subtitle: "Prevenção Avançada de Fraudes Bancárias e Anti-Vishing em Tempo Real",
-        total: "Auditorias Totais",
-        safe: "Aprovadas",
-        otp: "Desafio OTP",
-        blocked: "Fraudes Bloqueadas",
-        threatMap: "Mapa Global de Ameaças Cibernéticas",
-        tabTx: "Auditoria de Transação & Hardware",
-        tabVoice: "Escudo Acústico Anti-Vishing",
-        tabDDoS: "Simulador de DDoS e Bots",
-        tabConsortium: "Consórcio Bancário Global",
-        btnTx: "Executar Varredura Multicamadas",
-        btnMicStart: "Ligar Microfone em Tempo Real",
-        btnMicStop: "Desligar Microfone",
-        btnScanVoice: "Analisar Engenharia Social na Voz",
-        btnFetchHw: "Sondar Hardware Real",
-        btnAddBlacklist: "Inserir na Lista Negra",
-        auditTitle: "Registro de Auditoria Criptográfico"
-      },
-      it: {
-        dir: "ltr",
-        title: "Kashef Shield Enterprise",
-        subtitle: "Piattaforma Antifrode Bancaria e Scudo Vocale Anti-Vishing",
-        total: "Audit Totali",
-        safe: "Approvate",
-        otp: "Richiesta OTP",
-        blocked: "Frode Bloccata",
-        threatMap: "Mappa Globale delle Minacce Informatiche",
-        tabTx: "Audit Transazioni & Hardware",
-        tabVoice: "Scudo Vocale Anti-Vishing",
-        tabDDoS: "Simulatore di Bot & DDoS",
-        tabConsortium: "Consorzio Bancario Globale",
-        btnTx: "Esegui Scansione Multilivello",
-        btnMicStart: "Avvia Microfono Live",
-        btnMicStop: "Ferma Microfono",
-        btnScanVoice: "Analizza Ingegneria Sociale",
-        btnFetchHw: "Rileva Hardware Reale",
-        btnAddBlacklist: "Aggiungi Minaccia",
-        auditTitle: "Registro di Controllo Crittografico"
-      },
-      hi: {
-        dir: "ltr",
-        title: "काशिफ शील्ड (Kashef Shield)",
-        subtitle: "उन्नत वित्तीय धोखाधड़ी रोकथाम और रीयल-टाइम विशिंग शील्ड",
-        total: "कुल ऑडिट",
-        safe: "सुरक्षित स्वीकृत",
-        otp: "ओटीपी चुनौती",
-        blocked: "अवरुद्ध धोखाधड़ी",
-        threatMap: "वैश्विक साइबर खतरा मानचित्र",
-        tabTx: "लेनदेन और हार्डवेयर ऑडिट",
-        tabVoice: "एंटी-विशिंग वॉयस शील्ड",
-        tabDDoS: "बॉटनेट और डीडीओएस सिम्युलेटर",
-        tabConsortium: "ग्लोबल बैंकिंग कंसोर्टियम",
-        btnTx: "मल्टी-लेयर रिस्क स्कैन निष्पादित करें",
-        btnMicStart: "लाइव माइक शुरू करें",
-        btnMicStop: "माइक बंद करें",
-        btnScanVoice: "सोशल इंजीनियरिंग का विश्लेषण करें",
-        btnFetchHw: "हार्डवेयर की जांच करें",
-        btnAddBlacklist: "ब्लैकलिस्ट में जोड़ें",
-        auditTitle: "क्रिप्टोग्राफिक ऑडिट लेजर"
-      },
-      ko: {
-        dir: "ltr",
-        title: "Kashef Shield 엔터프라이즈",
-        subtitle: "고급 은행 사기 탐지 및 실시간 보이스피싱 방어 코어",
-        total: "총 검사 수",
-        safe: "승인됨",
-        otp: "OTP 인증 요구",
-        blocked: "차단된 사기",
-        threatMap: "글로벌 사이버 위협 인터랙티브 맵",
-        tabTx: "거래 및 하드웨어 감사",
-        tabVoice: "보이스피싱 음성 쉴드",
-        tabDDoS: "봇넷 & DDoS 시뮬레이터",
-        tabConsortium: "글로벌 은행 컨소시엄",
-        btnTx: "다계층 위험 분석 실행 (AI)",
-        btnMicStart: "마이크 실시간 감지 시작",
-        btnMicStop: "마이크 중지",
-        btnScanVoice: "보이스피싱 공격 탐지 분석",
-        btnFetchHw: "실제 하드웨어 사양 감지",
-        btnAddBlacklist: "블랙리스트 추가",
-        auditTitle: "암호화 위변조 방지 감사 원장"
-      },
-      id: {
-        dir: "ltr",
-        title: "Kashef Shield Enterprise",
-        subtitle: "Deteksi Penipuan Perbankan & Pelindung Anti-Vishing Real-Time",
-        total: "Total Audit",
-        safe: "Disetujui",
-        otp: "Tantangan OTP",
-        blocked: "Penipuan Dicegah",
-        threatMap: "Peta Ancaman Siber Global",
-        tabTx: "Audit Transaksi & Perangkat Keras",
-        tabVoice: "Perisai Suara Anti-Vishing",
-        tabDDoS: "Simulator Botnet & DDoS",
-        tabConsortium: "Konsorsium Perbankan Global",
-        btnTx: "Jalankan Pemindaian Risiko Multi-Lapis",
-        btnMicStart: "Aktifkan Mikrofon Langsung",
-        btnMicStop: "Hentikan Mikrofon",
-        btnScanVoice: "Analisis Rekayasa Sosial",
-        btnFetchHw: "Deteksi Perangkat Nyata",
-        btnAddBlacklist: "Tambah Entitas Ancaman",
-        auditTitle: "Buku Besar Audit Kriptografi"
-      },
-      vi: {
-        dir: "ltr",
-        title: "Kashef Shield Enterprise",
-        subtitle: "Lõi Bảo Mật Ngân Hàng & Chống Lừa Đảo Giọng Nói (Anti-Vishing)",
-        total: "Tổng Kiểm Toán",
-        safe: "Chấp Thuận",
-        otp: "Xác Thực OTP",
-        blocked: "Chặn Gian Lận",
-        threatMap: "Bản Đồ Mối Đe Dọa An Ninh Mạng Toàn Cầu",
-        tabTx: "Kiểm Toán Giao Dịch & Phần Cứng",
-        tabVoice: "Khiên Chống Vishing Âm Thanh",
-        tabDDoS: "Mô Phỏng Botnet & DDoS",
-        tabConsortium: "Liên Minh Ngân Hàng Toàn Cầu",
-        btnTx: "Quét Rủi Ro Đa Lớp (AI)",
-        btnMicStart: "Bật Mic Trực Tiếp",
-        btnMicStop: "Tắt Mic",
-        btnScanVoice: "Phân Tích Gian Lận Bằng Giọng Nói",
-        btnFetchHw: "Đọc Phần Cứng Thực Tế",
-        btnAddBlacklist: "Thêm Vào Danh Sách Đen",
-        auditTitle: "Sổ Cái Kiểm Toán Mã Hóa"
-      },
-      nl: {
-        dir: "ltr",
-        title: "Kashef Shield Enterprise",
-        subtitle: "Geavanceerde Bankfraudedetectie & Realtime Anti-Vishing Schild",
-        total: "Totale Audits",
-        safe: "Goedgekeurd",
-        otp: "OTP Uitdaging",
-        blocked: "Fraude Geblokkeerd",
-        threatMap: "Wereldwijde Cyberdreigingskaart",
-        tabTx: "Transactie & Hardware Audit",
-        tabVoice: "Akoestisch Vishing Schild",
-        tabDDoS: "Botnet & DDoS Simulator",
-        tabConsortium: "Wereldwijd Bankconsortium",
-        btnTx: "Start Meerlaagse Risicoscan",
-        btnMicStart: "Start Live Microfoon",
-        btnMicStop: "Stop Microfoon",
-        btnScanVoice: "Analyseer Social Engineering",
-        btnFetchHw: "Echte Hardware Uitlezen",
-        btnAddBlacklist: "Dreiging Toevoegen",
-        auditTitle: "Cryptografisch Auditjournaal"
-      },
-      fa: {
-        dir: "rtl",
-        title: "سپر کاشف (Kashef Shield)",
-        subtitle: "سامانه پیشرفته امنیت بانکی، تشخیص تقلب مالی و مقابله با تماس‌های صوتی مشکوک",
-        total: "کل بررسی‌ها",
-        safe: "تأیید شده",
-        otp: "درخواست OTP",
-        blocked: "مسدود شده",
-        threatMap: "نقشه جهانی تهدیدات سایبری زنده",
-        tabTx: "حسابرسی تراکنش و اثر انگشت سخت‌افزار",
-        tabVoice: "سپر ضد فیشینگ صوتی (Vishing)",
-        tabDDoS: "شبیه‌ساز حملات بات‌نت و DDoS",
-        tabConsortium: "کنسرسیوم بانکداری بین‌المللی",
-        btnTx: "اجرای اسکن چندلایه ریسک (AI)",
-        btnMicStart: "فعال‌سازی میکروفون زنده",
-        btnMicStop: "توقف میکروفون",
-        btnScanVoice: "تحلیل هوشمند مهندسی اجتماعی",
-        btnFetchHw: "شناسایی سخت‌افزار واقعی",
-        btnAddBlacklist: "افزودن به لیست سیاه",
-        auditTitle: "دفتر کل حسابرسی رمزنگاری شده"
-      },
-      pl: {
-        dir: "ltr",
-        title: "Kashef Shield Enterprise",
-        subtitle: "Zaawansowane Wykrywanie Oszustw Bankowych i Ochrona Przed Vishingiem",
-        total: "Łącznie Audytów",
-        safe: "Zatwierdzone",
-        otp: "Wymóg OTP",
-        blocked: "Zablokowane",
-        threatMap: "Globalna Interaktywna Mapa Zagrożeń",
-        tabTx: "Audyt Transakcji i Sprzętu",
-        tabVoice: "Tarcza Akustyczna Przed Vishingiem",
-        tabDDoS: "Symulator Botnetów i DDoS",
-        tabConsortium: "Globalne Konsorcjum Bankowe",
-        btnTx: "Wykonaj Wielowarstwowy Skan Ryzyka",
-        btnMicStart: "Uruchom Mikrofon Na Żywo",
-        btnMicStop: "Zatrzymaj Mikrofon",
-        btnScanVoice: "Analizuj Inżynierię Społeczną",
-        btnFetchHw: "Pobierz Prawdziwy Sprzęt",
-        btnAddBlacklist: "Dodaj Zagrożenie",
-        auditTitle: "Kryptograficzna Księga Audytu"
-      },
-      uk: {
-        dir: "ltr",
-        title: "Kashef Shield Enterprise",
-        subtitle: "Система Захисту від Банківського Шахрайства та Вішингу в Реальному Часі",
-        total: "Всього Аудитів",
-        safe: "Схвалено",
-        otp: "Запит OTP",
-        blocked: "Заблоковано",
-        threatMap: "Глобальна Карта Кіберзагроз",
-        tabTx: "Аудит Транзакцій та Обладнання",
-        tabVoice: "Акустичний Захист від Вішингу",
-        tabDDoS: "Симулятор Ботнетів та DDoS",
-        tabConsortium: "Міжнародний Банківський Консорціум",
-        btnTx: "Запустити Багаторівневий Аналіз",
-        btnMicStart: "Увімкнути Мікрофон",
-        btnMicStop: "Зупинити Мікрофон",
-        btnScanVoice: "Аналіз Соціальної Інженерії",
-        btnFetchHw: "Визначити Реальне Обладнання",
-        btnAddBlacklist: "Додати Загрозу",
-        auditTitle: "Криптографічний Журнал Аудиту"
-      },
-      sv: {
-        dir: "ltr",
-        title: "Kashef Shield Enterprise",
-        subtitle: "Avancerat Bankbedrägeriskydd och Akustisk Vishing-Sköld",
-        total: "Totalt Granskat",
-        safe: "Godkänt",
-        otp: "Kräver OTP",
-        blocked: "Blockerat Bedrägeri",
-        threatMap: "Global Karta över Cyberhot",
-        tabTx: "Transaktions- & Hårdvarugranskning",
-        tabVoice: "Akustisk Vishing-Sköld",
-        tabDDoS: "Botnäts- & DDoS-Simulator",
-        tabConsortium: "Globalt Bankkonsortium",
-        btnTx: "Kör Flernivå Riskanalys",
-        btnMicStart: "Starta Mikrofonström",
-        btnMicStop: "Stoppa Mikrofon",
-        btnScanVoice: "Analysera Social Manipulation",
-        btnFetchHw: "Avläs Riktig Hårdvara",
-        btnAddBlacklist: "Lägg Till Hot",
-        auditTitle: "Kryptografisk Revisionslogg"
-      }
+      ar: { dir: "rtl", title: "🛡️ Kashef Shield Enterprise AI", sub: "المنظومة المصرفية السيبرانية الموحدة - SOC Dashboard", t_tx: "💳 تدقيق المعاملات", t_call: "🎙️ رصد المكالمات", t_sim: "⚡ محاكي الهجمات", btn_eval: "⚡ فحص فوري متعدد الطبقات", btn_call: "🔍 تحليل المكالمة", total: "إجمالي المعاملات", pass: "العمليات السليمة ✅", otp: "تحدي الأمان (OTP) ⚠️", block: "الهجمات المحظورة 🚫" },
+      en: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise AI", sub: "Unified Autonomous SOC & Anti-Fraud Core", t_tx: "💳 Transaction Audit", t_call: "🎙️ Anti-Vishing Core", t_sim: "⚡ Attack Simulator", btn_eval: "⚡ Execute Multi-Layer Risk Scan", btn_call: "🔍 Analyze Audio Stream", total: "Total Audits", pass: "Approved ✅", otp: "OTP Challenge ⚠️", block: "Blocked 🚫" },
+      fr: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise AI", sub: "Noyau de Sécurité Financière et Anti-Vishing", t_tx: "💳 Audit de Transaction", t_call: "🎙️ Bouclier Vocal", t_sim: "⚡ Simulateur d'Attaque", btn_eval: "⚡ Analyser la Transaction", btn_call: "🔍 Analyser l'Appel", total: "Total Audits", pass: "Approuvé ✅", otp: "Défi OTP ⚠️", block: "Bloqué 🚫" },
+      de: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise AI", sub: "Kern für Finanzbetrugserkennung & Anti-Vishing", t_tx: "💳 Transaktionsprüfung", t_call: "🎙️ Anruf-Schutzschild", t_sim: "⚡ Angriffssimulator", btn_eval: "⚡ Risikoscan Ausführen", btn_call: "🔍 Anruf Analysieren", total: "Gesamtprüfungen", pass: "Genehmigt ✅", otp: "OTP Anforderung ⚠️", block: "Gesperrt 🚫" },
+      es: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise AI", sub: "Núcleo de Seguridad Financiera y Antifraude", t_tx: "💳 Auditoría", t_call: "🎙️ Escudo de Voz", t_sim: "⚡ Simulador de Ataques", btn_eval: "⚡ Evaluar Transacción", btn_call: "🔍 Analizar Llamada", total: "Total Auditorías", pass: "Aprobado ✅", otp: "Desafío OTP ⚠️", block: "Bloqueado 🚫" },
+      zh: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise AI", sub: "先进银行反欺诈与语音防钓鱼SOC中心", t_tx: "💳 交易审计", t_call: "🎙️ 语音防护", t_sim: "⚡ 攻击模拟器", btn_eval: "⚡ 执行风险扫描", btn_call: "🔍 分析通话", total: "总扫描次数", pass: "已批准 ✅", otp: "需要验证码 ⚠️", block: "已拦截 🚫" },
+      ru: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise AI", sub: "Система Защиты от Финансового Мошенничества", t_tx: "💳 Аудит транзакций", t_call: "🎙️ Защита от Вишинга", t_sim: "⚡ Симулятор атак", btn_eval: "⚡ Проверить риски", btn_call: "🔍 Анализировать звонок", total: "Всего проверок", pass: "Одобрено ✅", otp: "Запрос OTP ⚠️", block: "Заблокировано 🚫" },
+      ja: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise AI", sub: "先進金融不正検知・ビッシング防御SOC", t_tx: "💳 取引監査", t_call: "🎙️ 音声防御", t_sim: "⚡ 攻撃シミュレータ", btn_eval: "⚡ リスクスキャン実行", btn_call: "🔍 通話を解析", total: "総監査数", pass: "承認済み ✅", otp: "ワンタイムパス要求 ⚠️", block: "ブロック 🚫" },
+      tr: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise AI", sub: "Gelişmiş Bankacılık Dolandırıcılık Önleme Sistemi", t_tx: "💳 İşlem Denetimi", t_call: "🎙️ Çağrı Kalkanı", t_sim: "⚡ Saldırı Simülatörü", btn_eval: "⚡ Risk Taraması Başlat", btn_call: "🔍 Çağrıyı İncele", total: "Toplam Tarama", pass: "Onaylandı ✅", otp: "OTP Doğrulaması ⚠️", block: "Engellendi 🚫" },
+      pt: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise AI", sub: "Núcleo de Segurança Financeira e Antifraude", t_tx: "💳 Auditoria", t_call: "🎙️ Escudo de Voz", t_sim: "⚡ Simulador", btn_eval: "⚡ Executar Verificação", btn_call: "🔍 Analisar Chamada", total: "Total Verificações", pass: "Aprovado ✅", otp: "Desafio OTP ⚠️", block: "Bloqueado 🚫" },
+      it: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise AI", sub: "Nucleo di Sicurezza Finanziaria e Anti-Vishing", t_tx: "💳 Controllo Transazione", t_call: "🎙️ Scudo Chiamate", t_sim: "⚡ Simulatore di Attacco", btn_eval: "⚡ Esegui Scansione", btn_call: "🔍 Esamina Chiamata", total: "Totale Controlli", pass: "Approvato ✅", otp: "Richiesta OTP ⚠️", block: "Bloccato 🚫" },
+      hi: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise AI", sub: "वित्तीय धोखाधड़ी और विशिंग सुरक्षा प्रणाली", t_tx: "💳 लेनदेन लेखापरीक्षा", t_call: "🎙️ कॉल शील्ड", t_sim: "⚡ हमला सिम्युलेटर", btn_eval: "⚡ जोखिम स्कैन चलाएं", btn_call: "🔍 कॉल का विश्लेषण करें", total: "कुल स्कैन", pass: "स्वीकृत ✅", otp: "ओटीपी चुनौती ⚠️", block: "अवरुद्ध 🚫" },
+      ko: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise AI", sub: "금융 사기 탐지 및 보이스피싱 방어 시스템", t_tx: "💳 거래 감사", t_call: "🎙️ 보이스피싱 쉴드", t_sim: "⚡ 공격 시뮬레이터", btn_eval: "⚡ 위험 분석 실행", btn_call: "🔍 통화 분석", total: "총 검사 수", pass: "승인됨 ✅", otp: "OTP 인증 요구 ⚠️", block: "차단됨 🚫" },
+      id: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise AI", sub: "Sistem Keamanan Finansial & Anti-Vishing", t_tx: "💳 Audit Transaksi", t_call: "🎙️ Pelindung Panggilan", t_sim: "⚡ Simulator Serangan", btn_eval: "⚡ Pindai Risiko", btn_call: "🔍 Analisis Panggilan", total: "Total Pemindaian", pass: "Disetujui ✅", otp: "Tantangan OTP ⚠️", block: "Diblokir 🚫" },
+      vi: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise AI", sub: "Hệ Thống Bảo Mật Tài Chính Chống Lừa Đảo", t_tx: "💳 Kiểm Toán Giao Dịch", t_call: "🎙️ Khiên Chống Lừa Đảo", t_sim: "⚡ Mô Phỏng Tấn Công", btn_eval: "⚡ Quét Rủi Ro", btn_call: "🔍 Phân Tích Cuộc Gọi", total: "Tổng Số Quét", pass: "Được Duyệt ✅", otp: "Yêu Cầu OTP ⚠️", block: "Bị Chặn 🚫" },
+      nl: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise AI", sub: "Financiële Fraude & Anti-Vishing Bescherming", t_tx: "💳 Transactie Audit", t_call: "🎙️ Oproep Schild", t_sim: "⚡ Aanvalssimulator", btn_eval: "⚡ Start Risicoscan", btn_call: "🔍 Analyseer Gesprek", total: "Totaal Scans", pass: "Goedgekeurd ✅", otp: "OTP Uitdaging ⚠️", block: "Geblokkeerd 🚫" },
+      fa: { dir: "rtl", title: "🛡️ Kashef Shield Enterprise AI", sub: "سامانه پیشرفته امنیت بانکی و مقابله با کلاهبرداری", t_tx: "💳 حسابرسی تراکنش", t_call: "🎙️ سپر تماس صوتی", t_sim: "⚡ شبیه‌ساز حمله", btn_eval: "⚡ ارزیابی فوری ریسک", btn_call: "🔍 تحلیل تماس", total: "کل بررسی‌ها", pass: "تأیید شد ✅", otp: "درخواست OTP ⚠️", block: "مسدود شد 🚫" },
+      pl: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise AI", sub: "Zaawansowany Rdzeń Ochrony Finansowej", t_tx: "💳 Audyt Transakcji", t_call: "🎙️ Tarcza Połączeń", t_sim: "⚡ Symulator Ataku", btn_eval: "⚡ Uruchom Skanowanie", btn_call: "🔍 Analizuj Połączenie", total: "Wszystkie Skany", pass: "Zatwierdzone ✅", otp: "Wymóg OTP ⚠️", block: "Zablokowane 🚫" },
+      uk: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise AI", sub: "Система Захисту від Фінансового Шахрайства", t_tx: "💳 Аудит Транзакцій", t_call: "🎙️ Захист від Дзвінків", t_sim: "⚡ Симулятор Атак", btn_eval: "⚡ Запустити Сканування", btn_call: "🔍 Аналізувати Дзвінок", total: "Всього Сканувань", pass: "Схвалено ✅", otp: "Запит OTP ⚠️", block: "Заблоковано 🚫" },
+      sv: { dir: "ltr", title: "🛡️ Kashef Shield Enterprise AI", sub: "System för Finansiell Säkerhet & Samtalsskydd", t_tx: "💳 Transaktionsgranskning", t_call: "🎙️ Samtalsskydd", t_sim: "⚡ Attacksimulator", btn_eval: "⚡ Kör Riskanalys", btn_call: "🔍 Analysera Samtal", total: "Totalt Granskade", pass: "Godkänd ✅", otp: "Kräver OTP ⚠️", block: "Blockerad 🚫" }
     };
 
-    // Platform State Object
-    const PlatformState = {
-      lang: 'ar',
-      theme: 'neon',
-      stats: { total: 0, safe: 0, otp: 0, blocked: 0, savedDollars: 0 },
-      rateLimitWindow: {},
-      simInterval: null,
-      micActive: false,
-      audioCtx: null,
-      analyserNode: null,
-      mediaStream: null,
-      speechRecognizer: null,
-      blacklists: [
-        { type: "Phone / Vishing", target: "+20 10 9988 7766", reason: "Bank Central Impersonator & OTP Harvester", node: "CAI-01", date: "2026-11-08", status: "GLOBAL BLOCKED" },
-        { type: "Card Token", target: "tok_visa_415288******9901", reason: "Stolen BIN via DarkWeb Dump", node: "DXB-04", date: "2026-11-08", status: "CONFISCATED" },
-        { type: "HW-Fingerprint", target: "bfa89c0012e847fa", reason: "Known Virtualized Bot Farm (SwiftShader)", node: "FRA-02", date: "2026-11-07", status: "BLACKLISTED" },
-        { type: "TOR Exit Node", target: "185.220.101.5", reason: "Anonymized Proxy Relay Injection", node: "JFK-09", date: "2026-11-06", status: "GEO-BANNED" }
-      ],
-      userHistory: {
-        1092: { lastTime: Date.now() - 3600000, lastGeo: "EG", avgAmt: 300 }
-      },
-      cityCoordinates: {
-        EG: { x: 540, y: 155, name: "Cairo (EG)" },
-        SA: { x: 575, y: 175, name: "Riyadh (SA)" },
-        AE: { x: 610, y: 170, name: "Dubai (AE)" },
-        UK: { x: 470, y: 95, name: "London (UK)" },
-        US: { x: 260, y: 125, name: "New York (US)" },
-        DE: { x: 500, y: 105, name: "Frankfurt (DE)" },
-        SG: { x: 740, y: 220, name: "Singapore (SG)" },
-        TOR_EXIT: { x: 420, y: 60, name: "TOR Mesh Node" }
-      },
-      arcs: []
-    };
+    let stats = { total: 0, pass: 0, otp: 0, block: 0 };
+    let trafficHistory = [0, 0, 0, 0, 0, 0, 0];
 
-    /* =========================================================================
-       2. CRYPTOGRAPHIC & HARDWARE SENSORS
-       ========================================================================= */
-
-    // HMAC-SHA256 Signatures using Web Crypto API
-    async function signPayloadHMAC(message) {
-      try {
-        const enc = new TextEncoder();
-        const keyData = enc.encode("Kashef_Shield_BankGrade_Secret_Key_2026");
-        const cryptoKey = await window.crypto.subtle.importKey(
-          "raw", keyData, { name: "HMAC", hash: "SHA-256" }, false, ["sign"]
-        );
-        const sig = await window.crypto.subtle.sign("HMAC", cryptoKey, enc.encode(message));
-        return Array.from(new Uint8Array(sig)).map(b => b.toString(16).padStart(2, '0')).join('').substring(0, 16);
-      } catch (err) {
-        return Math.random().toString(36).substring(2, 18);
-      }
+    // تبديل الواجهات
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
     }
 
-    // Real Hardware Fingerprinting Detection
-    function probeRealHardwareSpec() {
-      let gpu = "Generic Software Renderer";
-      try {
-        const canvas = document.createElement('canvas');
-        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-        if (gl) {
-          const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-          if (debugInfo) {
-            gpu = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) || gpu;
-          }
-        }
-      } catch (e) {}
-
-      const cores = navigator.hardwareConcurrency || 4;
-      const screenRes = `${window.screen.width}x${window.screen.height}@${window.screen.colorDepth || 24}bit`;
-      const platform = navigator.userAgentData?.platform || navigator.platform || "x86_64";
-
-      // Compute quick hash
-      const raw = `${gpu}_${cores}_${screenRes}_${platform}`;
-      let hash = 0;
-      for (let i = 0; i < raw.length; i++) {
-        hash = ((hash << 5) - hash) + raw.charCodeAt(i);
-        hash |= 0;
-      }
-      const hwHash = Math.abs(hash).toString(16).padStart(8, '0') + "c79f";
-
-      return { gpu, cores, screenRes, platform, hwHash };
-    }
-
-    function autofillRealHardware() {
-      const spec = probeRealHardwareSpec();
-      document.getElementById('in-gpu').value = spec.gpu;
-      document.getElementById('in-cores').value = `${spec.cores} Cores | ${spec.screenRes}`;
-      document.getElementById('hw-live-hash').innerText = spec.hwHash;
-      document.getElementById('hw-live-gpu').innerText = spec.gpu;
-      document.getElementById('hw-live-res').innerText = spec.screenRes;
-      document.getElementById('hw-live-cores').innerText = `${spec.cores} Logical Processors | ${spec.platform}`;
-    }
-
-    /* =========================================================================
-       3. INTERACTIVE CYBER MAP ENGINE (CANVAS)
-       ========================================================================= */
-    const threatCanvas = document.getElementById('threatCanvas');
-    const tCtx = threatCanvas.getContext('2d');
-
-    function resizeThreatCanvas() {
-      if (!threatCanvas.parentElement) return;
-      threatCanvas.width = threatCanvas.parentElement.clientWidth;
-      threatCanvas.height = threatCanvas.parentElement.clientHeight;
-    }
-    window.addEventListener('resize', resizeThreatCanvas);
-
-    function triggerThreatArc(fromKey, toKey, isAttack = false) {
-      const from = PlatformState.cityCoordinates[fromKey] || PlatformState.cityCoordinates.EG;
-      const to = PlatformState.cityCoordinates[toKey] || PlatformState.cityCoordinates.SA;
-      PlatformState.arcs.push({
-        x1: from.x, y1: from.y,
-        x2: to.x, y2: to.y,
-        progress: 0,
-        isAttack: isAttack,
-        fromName: from.name,
-        toName: to.name
-      });
-    }
-
-    function renderThreatMapLoop() {
-      tCtx.fillStyle = '#02050f';
-      tCtx.fillRect(0, 0, threatCanvas.width, threatCanvas.height);
-
-      // Draw faint cyber grid
-      tCtx.strokeStyle = 'rgba(0, 242, 254, 0.05)';
-      tCtx.lineWidth = 1;
-      const step = 30;
-      for (let x = 0; x < threatCanvas.width; x += step) {
-        tCtx.beginPath(); tCtx.moveTo(x, 0); tCtx.lineTo(x, threatCanvas.height); tCtx.stroke();
-      }
-      for (let y = 0; y < threatCanvas.height; y += step) {
-        tCtx.beginPath(); tCtx.moveTo(0, y); tCtx.lineTo(threatCanvas.width, y); tCtx.stroke();
-      }
-
-      // Draw World Nodes
-      const scaleX = threatCanvas.width / 900;
-      const scaleY = threatCanvas.height / 300;
-
-      Object.entries(PlatformState.cityCoordinates).forEach(([code, node]) => {
-        const nx = node.x * scaleX;
-        const ny = node.y * scaleY;
-
-        // Node Glow
-        tCtx.fillStyle = code === 'TOR_EXIT' ? 'rgba(244, 63, 94, 0.6)' : 'rgba(0, 242, 254, 0.7)';
-        tCtx.beginPath();
-        tCtx.arc(nx, ny, 3.5, 0, Math.PI * 2);
-        tCtx.fill();
-
-        // Node Label
-        tCtx.fillStyle = 'rgba(148, 163, 184, 0.6)';
-        tCtx.font = '9px monospace';
-        tCtx.fillText(code, nx + 6, ny + 3);
-      });
-
-      // Animate Active Arcs
-      for (let i = PlatformState.arcs.length - 1; i >= 0; i--) {
-        const arc = PlatformState.arcs[i];
-        arc.progress += 0.025;
-
-        const sx = arc.x1 * scaleX;
-        const sy = arc.y1 * scaleY;
-        const ex = arc.x2 * scaleX;
-        const ey = arc.y2 * scaleY;
-
-        // Quadratic curve midpoint
-        const mx = (sx + ex) / 2;
-        const my = Math.min(sy, ey) - 35 * scaleY;
-
-        tCtx.strokeStyle = arc.isAttack ? 'rgba(244, 63, 94, 0.7)' : 'rgba(34, 197, 94, 0.7)';
-        tCtx.lineWidth = 1.5;
-        tCtx.setLineDash([4, 4]);
-        tCtx.beginPath();
-        tCtx.moveTo(sx, sy);
-        tCtx.quadraticCurveTo(mx, my, ex, ey);
-        tCtx.stroke();
-        tCtx.setLineDash([]);
-
-        // Head Particle
-        const t = arc.progress;
-        const px = (1 - t) * (1 - t) * sx + 2 * (1 - t) * t * mx + t * t * ex;
-        const py = (1 - t) * (1 - t) * sy + 2 * (1 - t) * t * my + t * t * ey;
-
-        tCtx.fillStyle = arc.isAttack ? '#f43f5e' : '#22c55e';
-        tCtx.beginPath();
-        tCtx.arc(px, py, 4, 0, Math.PI * 2);
-        tCtx.fill();
-
-        if (arc.progress >= 1) {
-          PlatformState.arcs.splice(i, 1);
-        }
-      }
-
-      requestAnimationFrame(renderThreatMapLoop);
-    }
-
-    /* =========================================================================
-       4. CHARTS VISUALIZATION (CHART.JS)
-       ========================================================================= */
-    let velocityChartInstance = null;
-    let distributionChartInstance = null;
-
-    function initCyberCharts() {
-      // Velocity Chart
-      const ctxV = document.getElementById('velocityChart').getContext('2d');
-      velocityChartInstance = new Chart(ctxV, {
-        type: 'line',
-        data: {
-          labels: ['-30s', '-25s', '-20s', '-15s', '-10s', '-5s', 'Now'],
-          datasets: [
-            {
-              label: 'Throughput (tx/s)',
-              data: [12, 19, 14, 25, 22, 30, 28],
-              borderColor: '#00f2fe',
-              backgroundColor: 'rgba(0, 242, 254, 0.1)',
-              fill: true,
-              tension: 0.35
-            },
-            {
-              label: 'Fraud Attacks (atk/s)',
-              data: [0, 1, 0, 3, 2, 8, 4],
-              borderColor: '#f43f5e',
-              backgroundColor: 'transparent',
-              borderDash: [4, 4],
-              tension: 0.2
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { labels: { color: '#94a3b8', font: { size: 10 } } } },
-          scales: {
-            x: { ticks: { color: '#64748b', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } },
-            y: { ticks: { color: '#64748b', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } }
-          }
-        }
-      });
-
-      // Distribution Donut Chart
-      const ctxD = document.getElementById('distributionChart').getContext('2d');
-      distributionChartInstance = new Chart(ctxD, {
-        type: 'doughnut',
-        data: {
-          labels: ['Clean Approved', 'OTP Challenged', 'Malicious Blocked'],
-          datasets: [{
-            data: [78, 16, 6],
-            backgroundColor: ['#10b981', '#f59e0b', '#f43f5e'],
-            borderWidth: 0
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { position: 'bottom', labels: { color: '#94a3b8', font: { size: 10 } } } }
-        }
-      });
-    }
-
-    function updateChartTelemetry(throughput, fraudCount) {
-      if (!velocityChartInstance) return;
-      velocityChartInstance.data.datasets[0].data.shift();
-      velocityChartInstance.data.datasets[0].data.push(throughput);
-
-      velocityChartInstance.data.datasets[1].data.shift();
-      velocityChartInstance.data.datasets[1].data.push(fraudCount);
-      velocityChartInstance.update();
-
-      distributionChartInstance.data.datasets[0].data = [
-        PlatformState.stats.safe || 1,
-        PlatformState.stats.otp || 1,
-        PlatformState.stats.blocked || 1
-      ];
-      distributionChartInstance.update();
-    }
-
-    /* =========================================================================
-       5. CORE FRAUD AUDIT & ZERO-TRUST DECISION ENGINE
-       ========================================================================= */
-    function maskCardNumber(card) {
-      const clean = card.replace(/\D/g, '');
-      if (clean.length < 4) return "**** **** **** 0000";
-      return `**** **** **** ${clean.slice(-4)}`;
-    }
-
-    async function runTransactionAudit(customParams = null) {
-      const uid = customParams ? customParams.uid : parseInt(document.getElementById('in-uid').value) || 1000;
-      const amt = customParams ? customParams.amt : parseFloat(document.getElementById('in-amt').value) || 0;
-      const card = customParams ? customParams.card : document.getElementById('in-card').value;
-      const geo = customParams ? customParams.geo : document.getElementById('in-geo').value;
-      const hwSpec = probeRealHardwareSpec();
-
-      // Check Rate Limiter (Token bucket per UID in 10-second window)
-      const now = Date.now();
-      if (!PlatformState.rateLimitWindow[uid]) PlatformState.rateLimitWindow[uid] = [];
-      PlatformState.rateLimitWindow[uid] = PlatformState.rateLimitWindow[uid].filter(t => now - t < 10000);
-      
-      let decision = "APPROVE";
-      let riskScore = 4.2;
-      let primaryReason = "Pattern matches verified historical spending vector";
-      let isRateLimitBreached = PlatformState.rateLimitWindow[uid].length >= 8;
-
-      PlatformState.rateLimitWindow[uid].push(now);
-
-      // Check Consortium Blacklist
-      const isCardBlacklisted = PlatformState.blacklists.some(b => b.target.includes(card.slice(-4)));
-      const isHWBlacklisted = PlatformState.blacklists.some(b => b.target === hwSpec.hwHash);
-
-      // Impossible Travel Velocity Check
-      let impossibleTravel = false;
-      const history = PlatformState.userHistory[uid] || { lastTime: now - 86400000, lastGeo: "EG", avgAmt: amt };
-      const hoursSinceLast = Math.max(0.01, (now - history.lastTime) / 3600000);
-
-      if (history.lastGeo !== geo && hoursSinceLast < 1.0) {
-        impossibleTravel = true;
-      }
-
-      // Calculate Decision Hierarchy
-      if (isRateLimitBreached) {
-        decision = "BLOCKED";
-        riskScore = 99.8;
-        primaryReason = "DDoS / High-Velocity Bot Rate Limit Breached (>8 tx in 10s)";
-      } else if (isCardBlacklisted || isHWBlacklisted) {
-        decision = "BLOCKED";
-        riskScore = 100.0;
-        primaryReason = "Compromised Asset flagged in Global Consortium Blacklist";
-      } else if (geo === 'TOR_EXIT') {
-        decision = "BLOCKED";
-        riskScore = 99.2;
-        primaryReason = "Originating from malicious TOR Onion Exit Relay";
-      } else if (impossibleTravel) {
-        decision = "BLOCKED";
-        riskScore = 98.7;
-        primaryReason = `Impossible Travel Velocity: jumped from ${history.lastGeo} to ${geo} in ${Math.round(hoursSinceLast * 60)} min`;
-      } else if (amt > 2000.0) {
-        decision = "BLOCKED";
-        riskScore = 94.0;
-        primaryReason = "Critical Deviation: Transaction exceeds 5x user baseline ceiling";
-      } else if (amt > 500.0) {
-        decision = "CHALLENGE_OTP";
-        riskScore = 48.5;
-        primaryReason = "Moderate Risk threshold: Requiring Out-Of-Band (SMS/Biometric) Challenge";
-      }
-
-      // Update State Statistics
-      PlatformState.stats.total++;
-      if (decision === "APPROVE") PlatformState.stats.safe++;
-      if (decision === "CHALLENGE_OTP") PlatformState.stats.otp++;
-      if (decision === "BLOCKED") {
-        PlatformState.stats.blocked++;
-        PlatformState.stats.savedDollars += amt;
-      }
-
-      // Update User Memory
-      PlatformState.userHistory[uid] = { lastTime: now, lastGeo: geo, avgAmt: (history.avgAmt + amt) / 2 };
-
-      // Trigger Visual Arc on Map
-      triggerThreatArc(history.lastGeo || "EG", geo, decision === "BLOCKED");
-
-      // Generate HMAC-SHA256 Tamper-Proof Audit Signature
-      const hmacSig = await signPayloadHMAC(`${uid}_${amt}_${decision}_${now}`);
-
-      // Update Metrics on UI
-      renderStats();
-
-      // Append Row to Table
-      appendAuditRow({
-        time: new Date().toLocaleTimeString(),
-        uid,
-        maskedCard: maskCardNumber(card),
-        amt: `$${amt.toFixed(2)}`,
-        geo,
-        risk: `${riskScore}%`,
-        decision,
-        sig: hmacSig
-      });
-
-      // Render Decision Card
-      if (!customParams) {
-        renderDecisionCard(decision, riskScore, primaryReason, hmacSig);
-      }
-
-      return { decision, riskScore, primaryReason };
-    }
-
-    function renderDecisionCard(decision, riskScore, reason, sig) {
-      const cardEl = document.getElementById('tx-decision-card');
-      cardEl.classList.remove('hidden', 'bg-emerald-950/60', 'border-emerald-500', 'bg-amber-950/60', 'border-amber-500', 'bg-rose-950/60', 'border-rose-500');
-
-      if (decision === "APPROVE") {
-        cardEl.classList.add('bg-emerald-950/60', 'border-emerald-500');
-        cardEl.innerHTML = `
-          <div class="flex items-center justify-between font-bold text-emerald-400">
-            <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-lg"></i> TRANSACTION APPROVED (CLEAN)</span>
-            <span class="font-mono text-xs">RISK: ${riskScore}%</span>
-          </div>
-          <p class="text-xs text-slate-300 mt-2">${reason}</p>
-          <div class="mt-3 pt-2 border-t border-emerald-900/60 text-[11px] font-mono text-emerald-400/80 flex justify-between">
-            <span>PCI-DSS Tokenization Passed</span>
-            <span>AUDIT SIG: <code>${sig}</code></span>
-          </div>
-        `;
-      } else if (decision === "CHALLENGE_OTP") {
-        cardEl.classList.add('bg-amber-950/60', 'border-amber-500');
-        cardEl.innerHTML = `
-          <div class="flex items-center justify-between font-bold text-amber-400">
-            <span class="flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation text-lg"></i> STEP-UP CHALLENGE REQUIRED (OTP)</span>
-            <span class="font-mono text-xs">RISK: ${riskScore}%</span>
-          </div>
-          <p class="text-xs text-slate-300 mt-2">${reason}</p>
-          <div class="mt-3 pt-2 border-t border-amber-900/60 text-[11px] font-mono text-amber-400/80 flex justify-between">
-            <span>2FA Push Notification Dispatched</span>
-            <span>AUDIT SIG: <code>${sig}</code></span>
-          </div>
-        `;
-      } else {
-        cardEl.classList.add('bg-rose-950/60', 'border-rose-500');
-        cardEl.innerHTML = `
-          <div class="flex items-center justify-between font-bold text-rose-400">
-            <span class="flex items-center gap-2"><i class="fa-solid fa-ban text-lg"></i> MALICIOUS ATTACK TERMINATED & BLOCKED</span>
-            <span class="font-mono text-xs">RISK: ${riskScore}%</span>
-          </div>
-          <p class="text-xs text-slate-300 mt-2">${reason}</p>
-          <div class="mt-3 pt-2 border-t border-rose-900/60 text-[11px] font-mono text-rose-400/80 flex justify-between">
-            <span>Countermeasure: Device Added to Consortium Quarantine</span>
-            <span>AUDIT SIG: <code>${sig}</code></span>
-          </div>
-        `;
-      }
-    }
-
-    function appendAuditRow(item) {
-      const tbody = document.getElementById('tx-log-rows');
-      const tr = document.createElement('tr');
-      tr.className = "hover:bg-slate-900/40 transition text-xs";
-
-      const badgeClass = item.decision === "APPROVE" 
-        ? "text-emerald-400 bg-emerald-950/80 border border-emerald-500/40"
-        : item.decision === "CHALLENGE_OTP"
-        ? "text-amber-400 bg-amber-950/80 border border-amber-500/40"
-        : "text-rose-400 bg-rose-950/80 border border-rose-500/40";
-
-      tr.innerHTML = `
-        <td class="p-3 text-slate-400">${item.time}</td>
-        <td class="p-3 font-bold text-cyan-300">#${item.uid}</td>
-        <td class="p-3 text-slate-300">${item.maskedCard}</td>
-        <td class="p-3 font-bold text-white">${item.amt}</td>
-        <td class="p-3 text-slate-300"><span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-700 font-mono">${item.geo}</span></td>
-        <td class="p-3 font-mono font-bold ${item.decision === 'BLOCKED' ? 'text-rose-400' : 'text-slate-300'}">${item.risk}</td>
-        <td class="p-3"><span class="px-2 py-1 rounded text-[10px] font-black uppercase ${badgeClass}">${item.decision}</span></td>
-        <td class="p-3 text-slate-400 font-mono text-[10px]"><code>${item.sig}</code></td>
-      `;
-
-      tbody.insertBefore(tr, tbody.firstChild);
-
-      // Keep maximum 30 rows in DOM
-      if (tbody.children.length > 30) {
-        tbody.removeChild(tbody.lastChild);
-      }
-      document.getElementById('tx-log-count').innerText = `${PlatformState.stats.total} Records Recorded`;
-    }
-
-    function renderStats() {
-      document.getElementById('kpi-total').innerText = PlatformState.stats.total;
-      document.getElementById('kpi-approved').innerText = PlatformState.stats.safe;
-      document.getElementById('kpi-otp').innerText = PlatformState.stats.otp;
-      document.getElementById('kpi-blocked').innerText = PlatformState.stats.blocked;
-      document.getElementById('kpi-saved').innerText = `$${Math.round(PlatformState.stats.savedDollars).toLocaleString()}`;
-
-      const t = PlatformState.stats.total || 1;
-      document.getElementById('kpi-approved-pct').innerText = `${Math.round((PlatformState.stats.safe / t) * 100)}%`;
-      document.getElementById('kpi-otp-pct').innerText = `${Math.round((PlatformState.stats.otp / t) * 100)}%`;
-      document.getElementById('kpi-blocked-pct').innerText = `${Math.round((PlatformState.stats.blocked / t) * 100)}%`;
-    }
-
-    /* =========================================================================
-       6. REAL-TIME ACOUSTIC MICROPHONE ANALYZER & SPEECH ANTI-VISHING
-       ========================================================================= */
-    const waveCanvas = document.getElementById('voiceWaveCanvas');
-    const wCtx = waveCanvas.getContext('2d');
-
-    function resizeWaveCanvas() {
-      if (!waveCanvas.parentElement) return;
-      waveCanvas.width = waveCanvas.parentElement.clientWidth;
-      waveCanvas.height = waveCanvas.parentElement.clientHeight;
-    }
-    window.addEventListener('resize', resizeWaveCanvas);
-
-    async function toggleMicrophoneStream() {
-      const btn = document.getElementById('btn-toggle-mic');
-      const micPill = document.getElementById('live-mic-pill');
-      const hint = document.getElementById('mic-hint-overlay');
-
-      if (!PlatformState.micActive) {
-        try {
-          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-          PlatformState.mediaStream = stream;
-          PlatformState.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-          PlatformState.analyserNode = PlatformState.audioCtx.createAnalyser();
-          PlatformState.analyserNode.fftSize = 256;
-
-          const source = PlatformState.audioCtx.createMediaStreamSource(stream);
-          source.connect(PlatformState.analyserNode);
-
-          PlatformState.micActive = true;
-          micPill.classList.remove('hidden');
-          micPill.classList.add('flex');
-          hint.classList.add('hidden');
-          btn.innerHTML = `<i class="fa-solid fa-microphone-slash"></i> <span>${I18N[PlatformState.lang].btnMicStop}</span>`;
-
-          // Start Web Speech Recognition if available
-          const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-          if (SpeechRecognition) {
-            PlatformState.speechRecognizer = new SpeechRecognition();
-            PlatformState.speechRecognizer.continuous = true;
-            PlatformState.speechRecognizer.interimResults = true;
-            PlatformState.speechRecognizer.lang = PlatformState.lang === 'ar' ? 'ar-EG' : 'en-US';
-
-            PlatformState.speechRecognizer.onresult = (event) => {
-              let liveText = "";
-              for (let i = event.resultIndex; i < event.results.length; ++i) {
-                liveText += event.results[i][0].transcript;
-              }
-              if (liveText.trim().length > 0) {
-                document.getElementById('in-transcript').value = liveText;
-                scanCurrentTranscript();
-              }
-            };
-            PlatformState.speechRecognizer.start();
-          }
-
-          drawAudioWave();
-        } catch (err) {
-          alert("Microphone Access Blocked or Not Supported in Browser.");
-        }
-      } else {
-        // Stop audio
-        if (PlatformState.mediaStream) {
-          PlatformState.mediaStream.getTracks().forEach(track => track.stop());
-        }
-        if (PlatformState.speechRecognizer) {
-          PlatformState.speechRecognizer.stop();
-        }
-        PlatformState.micActive = false;
-        micPill.classList.add('hidden');
-        hint.classList.remove('hidden');
-        btn.innerHTML = `<i class="fa-solid fa-microphone"></i> <span>${I18N[PlatformState.lang].btnMicStart}</span>`;
-      }
-    }
-
-    function drawAudioWave() {
-      if (!PlatformState.micActive) return;
-      requestAnimationFrame(drawAudioWave);
-
-      const bufferLength = PlatformState.analyserNode.frequencyBinCount;
-      const dataArray = new Uint8Array(bufferLength);
-      PlatformState.analyserNode.getByteTimeDomainData(dataArray);
-
-      wCtx.fillStyle = '#02050f';
-      wCtx.fillRect(0, 0, waveCanvas.width, waveCanvas.height);
-
-      wCtx.lineWidth = 2.5;
-      wCtx.strokeStyle = '#00f2fe';
-      wCtx.beginPath();
-
-      const sliceWidth = waveCanvas.width * 1.0 / bufferLength;
-      let x = 0;
-
-      for (let i = 0; i < bufferLength; i++) {
-        const v = dataArray[i] / 128.0;
-        const y = v * waveCanvas.height / 2;
-        if (i === 0) wCtx.moveTo(x, y);
-        else wCtx.lineTo(x, y);
-        x += sliceWidth;
-      }
-
-      wCtx.lineTo(waveCanvas.width, waveCanvas.height / 2);
-      wCtx.stroke();
-    }
-
-    function applyVoiceScenario() {
-      const val = document.getElementById('sel-scenario').value;
-      const t = document.getElementById('in-transcript');
-      if (val === "1") {
-        t.value = "أهلاً يا فندم أنا من خدمة عملاء البنك المركزي، حسابك موقوف ونحتاج تحديث البيانات، أمليني رقم البطاقة ورمز الـ OTP فوراً لتفادي تجميد أموالك.";
-      } else if (val === "2") {
-        t.value = "معاك الدعم الفني لمصرف الراجحي، تم رصد اختراق على محفظتك، يرجى تزويدي برقم الهوية وكلمة السر المؤقتة لإيقاف عملية السحب.";
-      } else {
-        t.value = "صباح الخير، أود الاستفسار عن مواعيد العمل في فرع وسط البلد وعن الأوراق المطلوبة لفتح حساب توفير بالدولار.";
-      }
-      scanCurrentTranscript();
-    }
-
-    function scanCurrentTranscript() {
-      const text = document.getElementById('in-transcript').value.toLowerCase();
-      const phone = document.getElementById('in-caller-phone').value;
-      const resBox = document.getElementById('vishing-result-box');
-
-      // Social Engineering Lexicon Matcher
-      const highRiskTriggers = [
-        "otp", "رمز التحقق", "كود التحقق", "رقم البطاقة", "cvv", "البنك المركزي",
-        "حسابك موقوف", "تجميد", "كلمة المرور", "password", "pin", "سري", "card number"
-      ];
-      const matches = highRiskTriggers.filter(w => text.includes(w));
-      const hasDigitSequences = /\b(?:\d[ -]*?){4,16}\b/.test(text);
-
-      let urgency = 15;
-      let creds = 10;
-      let auth = 20;
-
-      if (text.includes("موقوف") || text.includes("تجميد") || text.includes("فوراً") || text.includes("اختراق")) urgency = 95;
-      if (text.includes("otp") || text.includes("رمز") || text.includes("cvv") || hasDigitSequences) creds = 100;
-      if (text.includes("البنك المركزي") || text.includes("الدعم الفني") || text.includes("الراجحي")) auth = 88;
-
-      document.getElementById('val-urgency').innerText = `${urgency}%`;
-      document.getElementById('bar-urgency').style.width = `${urgency}%`;
-      document.getElementById('val-creds').innerText = `${creds}%`;
-      document.getElementById('bar-creds').style.width = `${creds}%`;
-      document.getElementById('val-auth').innerText = `${auth}%`;
-      document.getElementById('bar-auth').style.width = `${auth}%`;
-
-      const score = Math.min(100, Math.round((urgency * 0.35) + (creds * 0.45) + (auth * 0.2)));
-
-      resBox.classList.remove('hidden', 'bg-emerald-950/60', 'border-emerald-500', 'bg-amber-950/60', 'border-amber-500', 'bg-rose-950/60', 'border-rose-500');
-
-      if (score >= 65) {
-        resBox.classList.add('bg-rose-950/60', 'border-rose-500');
-        resBox.innerHTML = `
-          <div class="flex items-center justify-between font-bold text-rose-400">
-            <span class="flex items-center gap-2"><i class="fa-solid fa-phone-slash text-lg"></i> VISHING ATTACK CONFIRMED • PROTOCOL: TERMINATE</span>
-            <span class="font-mono text-sm font-black">RISK: ${score}%</span>
-          </div>
-          <p class="text-xs text-slate-200 mt-2">
-            تم رصد نبرة ترهيب احتيالية ومحاولة لاستدراج أسرار مصرفية. تم تصنيف الرقم <code class="text-rose-300 font-bold">${phone}</code> ككيان خبيث وإدراجه في التحالف المصرفي الدولي.
-          </p>
-          <div class="mt-2 text-[11px] text-rose-300 font-mono">Matched Heuristics: [${matches.join(', ')}]</div>
-        `;
-        // Auto add to consortium blacklist
-        PlatformState.blacklists.unshift({
-          type: "Phone / Vishing", target: phone, reason: `Real-time Vishing harvest (${matches.join(',')})`, node: "LIVE-SOC", date: new Date().toISOString().split('T')[0], status: "GLOBAL BLOCKED"
-        });
-        renderConsortiumTable();
-      } else if (score >= 35) {
-        resBox.classList.add('bg-amber-950/60', 'border-amber-500');
-        resBox.innerHTML = `
-          <div class="flex items-center justify-between font-bold text-amber-400">
-            <span class="flex items-center gap-2"><i class="fa-solid fa-circle-exclamation text-lg"></i> POTENTIAL SOCIAL ENGINEERING SUSPICION</span>
-            <span class="font-mono text-sm font-black">RISK: ${score}%</span>
-          </div>
-          <p class="text-xs text-slate-200 mt-2">تنبيه العميل أثناء المكالمة: لا تقم بمشاركة أي أرقام أو رموز تصلك عبر الهاتف.</p>
-        `;
-      } else {
-        resBox.classList.add('bg-emerald-950/60', 'border-emerald-500');
-        resBox.innerHTML = `
-          <div class="flex items-center justify-between font-bold text-emerald-400">
-            <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-lg"></i> ACOUSTIC STREAM VERIFIED SAFE</span>
-            <span class="font-mono text-sm font-black">RISK: ${score}%</span>
-          </div>
-          <p class="text-xs text-slate-200 mt-2">المحادثة طبيعية وتطابق المعايير المصرفية دون أي استدراج لبيانات حساسة.</p>
-        `;
-      }
-    }
-
-    /* =========================================================================
-       7. AUTOMATED BOT & DDOS ATTACK SIMULATOR
-       ========================================================================= */
-    let simInjectedTotal = 0;
-    let simBlockedTotal = 0;
-
-    function startAttackSimulator() {
-      if (PlatformState.simInterval) return;
-      const rate = parseInt(document.getElementById('sim-rate-range').value) || 20;
-      const delay = Math.max(20, Math.floor(1000 / rate));
-
-      document.getElementById('sim-live-state').innerText = "STREAMING ATTACK";
-      document.getElementById('sim-live-state').className = "text-rose-400 font-bold animate-pulse";
-
-      PlatformState.simInterval = setInterval(() => {
-        simInjectedTotal++;
-        const testUID = 7000 + Math.floor(Math.random() * 4); // Simulate 4 bot targets
-        const testAmt = Math.random() > 0.4 ? 1200 + Math.random() * 1500 : 80;
-        const geos = ["EG", "SA", "AE", "US", "UK", "TOR_EXIT"];
-        const pickGeo = geos[Math.floor(Math.random() * geos.length)];
-
-        runTransactionAudit({
-          uid: testUID,
-          amt: testAmt,
-          card: `5500-1234-5678-${Math.floor(1000 + Math.random() * 9000)}`,
-          geo: pickGeo
-        }).then(res => {
-          if (res.decision === "BLOCKED") simBlockedTotal++;
-          document.getElementById('sim-injected-count').innerText = `${simInjectedTotal} tx`;
-          document.getElementById('sim-blocked-count').innerText = `${simBlockedTotal}`;
-          updateChartTelemetry(rate, Math.floor(rate * 0.45));
-        });
-      }, delay);
-    }
-
-    function stopAttackSimulator() {
-      if (PlatformState.simInterval) {
-        clearInterval(PlatformState.simInterval);
-        PlatformState.simInterval = null;
-      }
-      document.getElementById('sim-live-state').innerText = "IDLE";
-      document.getElementById('sim-live-state').className = "text-emerald-400 font-bold";
-    }
-
-    document.getElementById('sim-rate-range').addEventListener('input', (e) => {
-      document.getElementById('sim-rate-val').innerText = `${e.target.value} tx/s`;
-      if (PlatformState.simInterval) {
-        stopAttackSimulator();
-        startAttackSimulator();
-      }
+    // تبديل المظهر
+    document.getElementById('theme-select').addEventListener('change', (e) => {
+      document.body.className = e.target.value;
     });
 
-    /* =========================================================================
-       8. GLOBAL CONSORTIUM BLACKLIST MANAGEMENT
-       ========================================================================= */
-    function renderConsortiumTable() {
-      const tbody = document.getElementById('consortium-table-body');
-      tbody.innerHTML = '';
-      PlatformState.blacklists.forEach((item, index) => {
-        const tr = document.createElement('tr');
-        tr.className = "hover:bg-slate-900/40 transition text-xs";
-        tr.innerHTML = `
-          <td class="p-3 text-cyan-300 font-bold font-mono">${item.type}</td>
-          <td class="p-3 font-mono text-white"><code>${item.target}</code></td>
-          <td class="p-3 text-slate-300 font-sans">${item.reason}</td>
-          <td class="p-3 text-slate-400 font-mono">${item.node}</td>
-          <td class="p-3 text-slate-400 font-mono">${item.date}</td>
-          <td class="p-3"><span class="px-2 py-0.5 rounded bg-rose-950/80 border border-rose-500/40 text-rose-400 text-[10px] font-bold">${item.status}</span></td>
-          <td class="p-3">
-            <button onclick="removeBlacklistEntry(${index})" class="text-slate-500 hover:text-rose-400 transition" title="Remove Entry">
-              <i class="fa-solid fa-trash-can"></i>
-            </button>
-          </td>
-        `;
-        tbody.appendChild(tr);
-      });
-    }
-
-    function removeBlacklistEntry(idx) {
-      PlatformState.blacklists.splice(idx, 1);
-      renderConsortiumTable();
-    }
-
-    function addNewBlacklistModal() {
-      const target = prompt("Enter Target (Phone, Card Token or HW-Hash):", "+966 50 112 3344");
-      if (!target) return;
-      const reason = prompt("Enter Classification Reason:", "Reported in cross-bank phishing campaign");
-      PlatformState.blacklists.unshift({
-        type: "Manual Entry",
-        target: target,
-        reason: reason || "Manual SOC Quarantine",
-        node: "MANUAL-SOC",
-        date: new Date().toISOString().split('T')[0],
-        status: "GLOBAL BLOCKED"
-      });
-      renderConsortiumTable();
-    }
-
-    /* =========================================================================
-       9. NAVIGATION, THEMES & I18N SWITCHER
-       ========================================================================= */
-    function switchTab(tabId) {
-      document.querySelectorAll('.tab-pane').forEach(el => el.classList.add('hidden'));
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('bg-cyan-950/90', 'border-cyan-400', 'text-cyan-300');
-        btn.classList.add('bg-slate-900/60', 'border-transparent', 'text-slate-400');
-      });
-
-      const pane = document.getElementById(tabId);
-      if (pane) pane.classList.remove('hidden');
-
-      const btnMap = {
-        'tab-tx': 'nav-btn-tx',
-        'tab-voice': 'nav-btn-voice',
-        'tab-ddos': 'nav-btn-ddos',
-        'tab-consortium': 'nav-btn-consortium'
-      };
-      const activeBtn = document.getElementById(btnMap[tabId]);
-      if (activeBtn) {
-        activeBtn.classList.remove('bg-slate-900/60', 'border-transparent', 'text-slate-400');
-        activeBtn.classList.add('bg-cyan-950/90', 'border-cyan-400', 'text-cyan-300');
-      }
-
-      if (tabId === 'tab-ddos') {
-        setTimeout(() => {
-          if (velocityChartInstance) velocityChartInstance.resize();
-          if (distributionChartInstance) distributionChartInstance.resize();
-        }, 100);
-      }
-    }
-
-    function setTheme(theme) {
-      PlatformState.theme = theme;
-      const body = document.body;
-      body.classList.remove('bg-cyber-darkbg', 'bg-slate-950', 'bg-slate-100', 'text-slate-100', 'text-slate-900');
-
-      if (theme === 'light') {
-        body.classList.add('bg-slate-100', 'text-slate-900');
-      } else if (theme === 'dark') {
-        body.classList.add('bg-slate-950', 'text-slate-100');
-      } else {
-        body.classList.add('bg-cyber-darkbg', 'text-slate-100');
-      }
-    }
-
+    // تبديل اللغة وتحديث النصوص والاتجاه
     document.getElementById('lang-select').addEventListener('change', (e) => {
       const code = e.target.value;
-      PlatformState.lang = code;
-      const dict = I18N[code] || I18N.en;
-
+      const t = I18N[code] || I18N.en;
+      document.documentElement.dir = t.dir;
       document.documentElement.lang = code;
-      document.documentElement.dir = dict.dir;
 
-      // Update Key DOM Labels
-      document.getElementById('ui-title').querySelector('span').innerText = dict.title;
-      document.getElementById('ui-subtitle').innerText = dict.subtitle;
-      document.getElementById('kpi-total-label').innerText = dict.total;
-      document.getElementById('kpi-approved-label').innerText = dict.safe;
-      document.getElementById('kpi-otp-label').innerText = dict.otp;
-      document.getElementById('kpi-blocked-label').innerText = dict.blocked;
-      document.getElementById('threat-map-title').innerText = dict.threatMap;
-      document.getElementById('tab-title-tx').innerText = dict.tabTx;
-      document.getElementById('tab-title-voice').innerText = dict.tabVoice;
-      document.getElementById('tab-title-ddos').innerText = dict.tabDDoS;
-      document.getElementById('tab-title-consortium').innerText = dict.tabConsortium;
-      document.getElementById('btn-run-tx').innerText = dict.btnTx;
-      document.getElementById('btn-fetch-hw').innerText = dict.btnFetchHw;
-      document.getElementById('btn-scan-transcript').innerText = dict.btnScanVoice;
-      document.getElementById('btn-add-blacklist').innerText = dict.btnAddBlacklist;
-      document.getElementById('tx-log-title').innerHTML = `<i class="fa-solid fa-list-check text-cyan-400"></i> ${dict.auditTitle}`;
+      document.getElementById('app-title').innerText = t.title;
+      document.getElementById('app-sub').innerText = t.sub;
+      document.getElementById('t-tx').innerText = t.t_tx;
+      document.getElementById('t-call').innerText = t.t_call;
+      document.getElementById('t-sim').innerText = t.t_sim;
+      document.getElementById('btn-eval').innerText = t.btn_eval;
+      document.getElementById('btn-call').innerText = t.btn_call;
+      document.getElementById('lbl-total').innerText = t.total;
+      document.getElementById('lbl-pass').innerText = t.pass;
+      document.getElementById('lbl-otp').innerText = t.otp;
+      document.getElementById('lbl-block').innerText = t.block;
+    });
 
-      if (!PlatformState.micActive) {
-        document.getElementById('btn-mic-text').innerText = dict.btnMicStart;
-      } else {
-        document.getElementById('btn-mic-text').innerText = dict.btnMicStop;
+    // مولد الصوت السيبراني (Cyber Audio Synthesizer)
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    function playCyberAlert(type) {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      if (type === 'danger') {
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(880, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(220, audioCtx.currentTime + 0.3);
+        gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.3);
+      } else if (type === 'success') {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(440, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.2);
+        gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.2);
+      }
+    }
+
+    // رسم بياني لمعدل المعاملات (Chart.js)
+    const ctx = document.getElementById('trafficChart').getContext('2d');
+    const trafficChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['-6s', '-5s', '-4s', '-3s', '-2s', '-1s', 'الآن'],
+        datasets: [{
+          label: 'العمليات',
+          data: trafficHistory,
+          borderColor: '#00f2fe',
+          backgroundColor: 'rgba(0, 242, 254, 0.1)',
+          fill: true,
+          tension: 0.35
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { color: 'rgba(255,255,255,0.05)' } },
+          y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' } }
+        }
       }
     });
 
-    /* =========================================================================
-       10. APPLICATION BOOTSTRAPPER
-       ========================================================================= */
-    window.addEventListener('DOMContentLoaded', () => {
-      resizeThreatCanvas();
-      resizeWaveCanvas();
-      autofillRealHardware();
-      renderConsortiumTable();
-      initCyberCharts();
-      renderThreatMapLoop();
+    // خريطة التهديدات الحية (Threat Map Canvas)
+    const mapCanvas = document.getElementById('threat-map-canvas');
+    const mctx = mapCanvas.getContext('2d');
+    let arcs = [];
 
-      // Seed 2 initial transactions
-      runTransactionAudit({ uid: 1055, amt: 120.00, card: "4532-1100-2233-4455", geo: "EG" });
-      runTransactionAudit({ uid: 2041, amt: 2800.00, card: "4152-8899-7721-9901", geo: "TOR_EXIT" });
-    });
+    function resizeCanvas() {
+      mapCanvas.width = mapCanvas.parentElement.clientWidth;
+      mapCanvas.height = 200;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function drawThreatMap() {
+      mctx.fillStyle = '#020617';
+      mctx.fillRect(0, 0, mapCanvas.width, mapCanvas.height);
+
+      const nodes = [
+        { x: mapCanvas.width * 0.25, y: 70, name: 'US' },
+        { x: mapCanvas.width * 0.52, y: 90, name: 'EG' },
+        { x: mapCanvas.width * 0.58, y: 110, name: 'GCC' },
+        { x: mapCanvas.width * 0.80, y: 80, name: 'ASIA' }
+      ];
+
+      nodes.forEach(n => {
+        mctx.beginPath();
+        mctx.arc(n.x, n.y, 4, 0, Math.PI * 2);
+        mctx.fillStyle = '#38bdf8';
+        mctx.fill();
+      });
+
+      for (let i = arcs.length - 1; i >= 0; i--) {
+        let a = arcs[i];
+        a.progress += 0.04;
+        let curX = a.x1 + (a.x2 - a.x1) * a.progress;
+        let curY = a.y1 + (a.y2 - a.y1) * a.progress - Math.sin(a.progress * Math.PI) * 35;
+
+        mctx.beginPath();
+        mctx.arc(curX, curY, 3, 0, Math.PI * 2);
+        mctx.fillStyle = a.color;
+        mctx.fill();
+
+        if (a.progress >= 1) arcs.splice(i, 1);
+      }
+      requestAnimationFrame(drawThreatMap);
+    }
+    drawThreatMap();
+
+    function addAttackVector(isBlocked) {
+      arcs.push({
+        x1: Math.random() * mapCanvas.width,
+        y1: Math.random() * mapCanvas.height,
+        x2: mapCanvas.width * 0.52,
+        y2: 90,
+        progress: 0,
+        color: isBlocked ? '#ef4444' : '#22c55e'
+      });
+    }
+
+    // توليد بصمة العتاد الحقيقية (Device Fingerprinting)
+    async function calculateFingerprint() {
+      const raw = [
+        navigator.userAgent,
+        screen.width + "x" + screen.height,
+        navigator.hardwareConcurrency || "4",
+        navigator.language
+      ].join("###");
+
+      const enc = new TextEncoder().encode(raw);
+      const hashBuf = await crypto.subtle.digest("SHA-256", enc);
+      const hash = Array.from(new Uint8Array(hashBuf)).map(b => b.toString(16).padStart(2, '0')).join('').substring(0, 24);
+      document.getElementById('device-fingerprint').innerText = "FP-" + hash;
+    }
+    calculateFingerprint();
+
+    // التوقيع الرقمي للعملية (HMAC-SHA256)
+    async function signAuditEntry(dataStr) {
+      const enc = new TextEncoder();
+      const key = await crypto.subtle.importKey(
+        "raw",
+        enc.encode("kashef_audit_sec_key_2026"),
+        { name: "HMAC", hash: "SHA-256" },
+        false,
+        ["sign"]
+      );
+      const sig = await crypto.subtle.sign("HMAC", key, enc.encode(dataStr));
+      return Array.from(new Uint8Array(sig)).map(b => b.toString(16).padStart(2, '0')).join('').substring(0, 16);
+    }
+
+    function maskCard(card) {
+      const c = card.replace(/\D/g, '');
+      return c.length < 4 ? "****" : "****-****-****-" + c.slice(-4);
+    }
+
+    // تقييم المعاملة
+    async function processTransaction(uid, amt, card, country, isManual = false) {
+      stats.total++;
+      let decision = "APPROVE";
+      let riskScore = 4.5;
+      let reason = "سلوك طبيعي مطابق للعتاد المعتمد";
+
+      if (country === "SUSPICIOUS") {
+        decision = "BLOCK";
+        riskScore = 99.8;
+        reason = "اتصال عبر عقدة شبكية محظورة أو خادم وكيل مجهول (Proxy/VPN)";
+      } else if (amt > 2500) {
+        decision = "BLOCK";
+        riskScore = 96.2;
+        reason = "انحراف ضخم في المبلغ المستقطع (Critical Amount Anomaly)";
+      } else if (amt > 600) {
+        decision = "OTP";
+        riskScore = 48.0;
+        reason = "طلب مصادقة ثنائية لتقليل المخاطر الائتمانية";
+      }
+
+      if (decision === "BLOCK") {
+        stats.block++;
+        addAttackVector(true);
+        if (isManual) playCyberAlert('danger');
+      } else if (decision === "OTP") {
+        stats.otp++;
+        addAttackVector(false);
+      } else {
+        stats.pass++;
+        addAttackVector(false);
+        if (isManual) playCyberAlert('success');
+      }
+
+      if (isManual) {
+        const resBox = document.getElementById('tx-result');
+        resBox.style.display = 'block';
+        if (decision === "BLOCK") {
+          resBox.className = 'result-box status-fail';
+          resBox.innerHTML = `🚫 <b>تم حظر المعاملة فورياً!</b><br>نسبة الخطر: ${riskScore}% | السبب: ${reason}`;
+        } else if (decision === "OTP") {
+          resBox.className = 'result-box status-warn';
+          resBox.innerHTML = `⚠️ <b>مطلوب رمز تحقق (OTP)!</b><br>نسبة الخطر: ${riskScore}% | السبب: ${reason}`;
+        } else {
+          resBox.className = 'result-box status-pass';
+          resBox.innerHTML = `✅ <b>تمت الموافقة على المعاملة!</b><br>نسبة الخطر: ${riskScore}% | السبب: ${reason}`;
+        }
+      }
+
+      const sig = await signAuditEntry(`${uid}_${amt}_${decision}`);
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${new Date().toLocaleTimeString()}</td>
+        <td>#${uid}</td>
+        <td>${maskCard(card)}</td>
+        <td>${riskScore}%</td>
+        <td><b>${decision}</b></td>
+        <td><code>${sig}</code></td>
+      `;
+      document.getElementById('tx-log-body').prepend(row);
+
+      updateMetrics();
+      return decision;
+    }
+
+    function evaluateTxManual() {
+      const uid = document.getElementById('tx-user').value;
+      const amt = parseFloat(document.getElementById('tx-amt').value) || 0;
+      const card = document.getElementById('tx-card').value;
+      const country = document.getElementById('tx-country').value;
+      processTransaction(uid, amt, card, country, true);
+    }
+
+    // التعرف الصوتي المباشر (Web Speech API)
+    let recognition;
+    let isRecording = false;
+
+    function toggleVoiceRecording() {
+      const btn = document.getElementById('mic-btn');
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+      if (!SpeechRecognition) {
+        alert("المتصفح الحالي لا يدعم التعرف الصوتي المباشر. يمكنك إدخال النص يدوياً.");
+        return;
+      }
+
+      if (!recognition) {
+        recognition = new SpeechRecognition();
+        recognition.lang = 'ar-EG';
+        recognition.continuous = true;
+        recognition.interimResults = true;
+
+        recognition.onresult = (e) => {
+          let text = '';
+          for (let i = 0; i < e.results.length; i++) {
+            text += e.results[i][0].transcript;
+          }
+          document.getElementById('call-txt').value = text;
+        };
+
+        recognition.onerror = () => {
+          isRecording = false;
+          btn.innerText = "🎙️ بدء الاستماع الصوتي المباشر";
+        };
+      }
+
+      if (!isRecording) {
+        recognition.start();
+        isRecording = true;
+        btn.innerText = "⏹️ جارٍ الاستماع... اضغط للإيقاف";
+      } else {
+        recognition.stop();
+        isRecording = false;
+        btn.innerText = "🎙️ بدء الاستماع الصوتي المباشر";
+      }
+    }
+
+    // فحص المحادثة الصوتية
+    function evaluateCall() {
+      const text = document.getElementById('call-txt').value.toLowerCase();
+      const resBox = document.getElementById('call-result');
+      const keywords = ["فيزا", "بطاقة", "otp", "كود", "تحقق", "موقوف", "البنك", "cvv", "باسورد", "pin", "سري", "card"];
+      const matched = keywords.filter(w => text.includes(w));
+
+      resBox.style.display = 'block';
+      if (matched.length >= 2) {
+        playCyberAlert('danger');
+        resBox.className = 'result-box status-fail';
+        resBox.innerHTML = `🚨 <b>احتيال صوتي وهندسة اجتماعية (Critical Vishing)!</b><br>تم رصد محاولات استدراج لبيانات حساسة (${matched.join(', ')}). الإجراء: إنهاء الاتصال فوراً.`;
+      } else {
+        playCyberAlert('success');
+        resBox.className = 'result-box status-pass';
+        resBox.innerHTML = `✅ <b>مكالمة طبيعية:</b> لم تُرصد أي مؤشرات لطلب رموز بنكية أو محاولات تصيد.`;
+      }
+    }
+
+    // محاكي الهجمات المتقدم
+    function runAttackSimulation() {
+      const log = document.getElementById('sim-log');
+      log.innerHTML = "بدء محاكاة هجمات حية عبر المحرك السيبراني...<br>";
+
+      let count = 0;
+      const interval = setInterval(async () => {
+        count++;
+        const isMalicious = Math.random() > 0.6;
+        const amt = isMalicious ? Math.floor(Math.random() * 4500) + 1200 : Math.floor(Math.random() * 400) + 50;
+        const country = isMalicious ? "SUSPICIOUS" : "EG";
+        const uid = Math.floor(Math.random() * 8999) + 1000;
+        const dec = await processTransaction(uid, amt, "4152-0000-1111-2222", country, false);
+
+        log.innerHTML = `[${new Date().toLocaleTimeString()}] رصد حزمة #${count}: المبلغ $${amt} -> القرار: <b>${dec}</b><br>` + log.innerHTML;
+
+        if (count >= 25) clearInterval(interval);
+      }, 120);
+    }
+
+    // تصدير تقرير التدقيق
+    function exportAuditReport() {
+      window.print();
+    }
+
+    // تحديث الإحصائيات والرسم البياني
+    function updateMetrics() {
+      document.getElementById('cnt-total').innerText = stats.total;
+      document.getElementById('cnt-pass').innerText = stats.pass;
+      document.getElementById('cnt-otp').innerText = stats.otp;
+      document.getElementById('cnt-block').innerText = stats.block;
+
+      trafficHistory.shift();
+      trafficHistory.push(stats.total);
+      trafficChart.update();
+    }
   </script>
 </body>
 </html>
