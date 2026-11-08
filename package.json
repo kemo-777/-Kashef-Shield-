@@ -1,0 +1,8 @@
+{
+    "transaction_id": "tx_test_001",
+    "user_id": 2045,
+    "device_id": 99999,
+    "amount": 1850.0,
+    "currency": "USD",
+    "country": "EG"
+  }
